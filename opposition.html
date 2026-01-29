@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opposition Tool - Strategic Motion Opposition Platform | LegaWrite</title>
+  <meta name="description" content="A strategic motion opposition platform that analyzes the motion against you, forces a deliberate posture, and enforces quality before anything is written.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#111726',
+            brand: {
+              blue: '#1672D7',
+              cyan: '#5FE1F1',
+            },
+            primary: {
+              DEFAULT: '#1976D2',
+              dark: '#1565C0',
+            },
+            danger: '#C62828',
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+  <!-- Back to Platform -->
+  <div class="sticky top-0 z-[60] bg-navy text-white text-sm py-2 px-6">
+    <div class="max-w-6xl mx-auto">
+      <a href="upcoming-features.html" class="inline-flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        Back to Platform Overview
+      </a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-8 z-50 bg-white/95 backdrop-blur border-b border-gray-200" role="navigation" aria-label="Main navigation">
+    <div class="max-w-6xl mx-auto px-6 sm:px-12 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="legawrite-logo-horizontal.png" alt="LegaWrite logo" class="h-7 w-auto">
+        <div class="hidden sm:block h-5 w-px bg-gray-300"></div>
+        <span class="hidden sm:block text-base font-semibold text-gray-900 tracking-tight">Strategic Motion Opposition Platform</span>
+      </div>
+      <div class="flex items-center gap-8">
+        <a href="#how-it-works" class="hidden md:inline text-sm text-gray-600 hover:text-gray-900 transition-colors">How It Works</a>
+        <a href="#postures" class="hidden md:inline text-sm text-gray-600 hover:text-gray-900 transition-colors">Strategic Postures</a>
+        <a href="#quality" class="hidden md:inline text-sm text-gray-600 hover:text-gray-900 transition-colors">Quality Gates</a>
+        <a href="#final-cta" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-md transition-colors cursor-pointer">See How It Works</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="max-w-4xl mx-auto px-6 sm:px-12 pt-20 pb-16 text-center">
+    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight mb-5">
+      Opposition Is a Strategic Decision,
+      <span class="text-gray-400">Not a Writing Task</span>
+    </h1>
+    <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
+      A strategic motion opposition platform that analyzes the motion against you, forces a deliberate posture, and enforces quality before anything is written.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center mb-14">
+      <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors cursor-pointer">
+        See How It Works
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#postures" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-gray-600 border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">View Example Opposition Flow</a>
+    </div>
+
+    <!-- Flow Diagram -->
+    <div class="flex flex-nowrap items-center justify-center gap-0 bg-white border border-gray-200 rounded-xl p-6 sm:p-8 overflow-x-hidden">
+      <!-- Upload Motion -->
+      <div class="flex flex-col items-center gap-2 px-3">
+        <svg class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <span class="text-sm font-semibold text-gray-600 whitespace-nowrap">Upload Motion</span>
+      </div>
+      <svg class="text-gray-400 mx-1 mb-5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <!-- Analyze Attacks -->
+      <div class="flex flex-col items-center gap-2 px-3">
+        <svg class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="text-sm font-semibold text-gray-600 whitespace-nowrap">Analyze Attacks</span>
+      </div>
+      <svg class="text-gray-400 mx-1 mb-5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <!-- Choose Posture -->
+      <div class="flex flex-col items-center gap-2 px-3">
+        <svg class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        <span class="text-sm font-semibold text-gray-600 whitespace-nowrap">Choose Posture</span>
+      </div>
+      <svg class="text-gray-400 mx-1 mb-5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <!-- Build Strategy -->
+      <div class="flex flex-col items-center gap-2 px-3">
+        <svg class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span class="text-sm font-semibold text-gray-600 whitespace-nowrap">Build Strategy</span>
+      </div>
+      <svg class="text-gray-400 mx-1 mb-5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <!-- Enforce Quality -->
+      <div class="flex flex-col items-center gap-2 px-3">
+        <svg class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span class="text-sm font-semibold text-gray-600 whitespace-nowrap">Enforce Quality</span>
+      </div>
+      <svg class="text-gray-400 mx-1 mb-5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <!-- File -->
+      <div class="flex flex-col items-center gap-2 px-3">
+        <svg class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span class="text-sm font-semibold text-gray-600 whitespace-nowrap">File</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- START WITH THE MOTION -->
+  <section id="how-it-works" class="bg-white border-t border-b border-gray-200 py-20">
+    <div class="max-w-3xl mx-auto px-6 sm:px-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Entry Point</p>
+      <h2 class="text-3xl font-bold leading-tight mb-4">Start With the Motion, Not a Blank Page</h2>
+      <p class="text-base text-gray-600 leading-relaxed mb-8">The only input is the opponent's motion. No setup, no configuration, no templates. The system reads and breaks down what you are actually fighting.</p>
+
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 border-l-4 border-l-primary mb-8">
+        <p class="text-base font-semibold text-gray-900 leading-relaxed">"You never start by writing. You start by understanding the attack."</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+          <div class="text-base font-bold text-primary mb-1">1</div>
+          <div class="text-base text-gray-600 leading-relaxed">Upload the motion filed against you</div>
+        </div>
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+          <div class="text-base font-bold text-primary mb-1">2</div>
+          <div class="text-base text-gray-600 leading-relaxed">System extracts their ask, their frame, their key arguments</div>
+        </div>
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+          <div class="text-base font-bold text-primary mb-1">3</div>
+          <div class="text-base text-gray-600 leading-relaxed">You see the attack structure before writing a word</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE STRATEGIC POSTURES -->
+  <section id="postures" class="py-20">
+    <div class="max-w-4xl mx-auto px-6 sm:px-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Strategic Core</p>
+      <h2 class="text-3xl font-bold leading-tight mb-2">The First Decision Shapes Everything</h2>
+      <p class="text-base text-gray-600 leading-relaxed mb-10">Before any drafting, you choose how to fight. Commit to a strategy before committing to words.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-white border border-gray-200 rounded-xl p-7 border-t-[3px] border-t-primary">
+          <h3 class="text-xl font-bold text-primary mb-3">Reframe</h3>
+          <p class="text-base text-gray-600 leading-relaxed">Impose a competing narrative. Same facts, different story. Force the court to see the case through your lens.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-7 border-t-[3px] border-t-danger">
+          <h3 class="text-xl font-bold text-danger mb-3">Point-by-Point</h3>
+          <p class="text-base text-gray-600 leading-relaxed">Methodical destruction of each argument. Every claim answered, every authority distinguished.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-7 border-t-[3px] border-t-violet-600">
+          <h3 class="text-xl font-bold text-violet-600 mb-3">Hybrid</h3>
+          <p class="text-base text-gray-600 leading-relaxed">Kill what matters, concede what doesn't, brief the rest. Strategic triage for experienced litigators.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BURDEN FIRST -->
+  <section class="bg-white border-t border-b border-gray-200 py-20">
+    <div class="max-w-3xl mx-auto px-6 sm:px-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Legal Framework</p>
+      <h2 class="text-3xl font-bold leading-tight mb-4">Burden First, Merits Second</h2>
+      <p class="text-base text-gray-600 leading-relaxed mb-8">The system identifies the applicable burden framework, determines whether the movant has failed at a threshold step, and forces burden-based arguments to appear first when dispositive.</p>
+
+      <div class="bg-red-50 border border-red-200 rounded-lg p-5 mb-8">
+        <p class="text-base font-semibold text-danger leading-relaxed">"Many motions fail before the merits. Most lawyers miss that."</p>
+      </div>
+
+      <div class="space-y-0 divide-y divide-gray-100">
+        <div class="flex items-start gap-3 py-3">
+          <svg class="text-primary flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="text-base text-gray-600">Identifies the burden framework for the motion type</span>
+        </div>
+        <div class="flex items-start gap-3 py-3">
+          <svg class="text-primary flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="text-base text-gray-600">Detects threshold failures before reaching the merits</span>
+        </div>
+        <div class="flex items-start gap-3 py-3">
+          <svg class="text-primary flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="text-base text-gray-600">Forces burden arguments first when they are dispositive</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISTINGUISH AUTHORITY -->
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-6 sm:px-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Authority Analysis</p>
+      <h2 class="text-3xl font-bold leading-tight mb-4">Distinguish Authority Systematically</h2>
+      <p class="text-base text-gray-600 leading-relaxed mb-8">Every opponent-cited case is analyzed. Strongest distinctions are ranked. Outdated, narrowed, or non-binding authority is flagged. Judge-facing distinction language is generated.</p>
+
+      <div class="bg-red-50 border border-red-200 rounded-lg p-5 mb-8">
+        <p class="text-base font-semibold text-danger leading-relaxed">"Not all distinctions are equal. The system knows which ones matter."</p>
+      </div>
+
+      <!-- Distinction Table -->
+      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+        <table class="w-full text-base">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="text-left px-4 py-3 text-xs font-bold uppercase tracking-wide text-gray-500">Case Cited</th>
+              <th class="text-left px-4 py-3 text-xs font-bold uppercase tracking-wide text-gray-500">Distinction</th>
+              <th class="text-center px-4 py-3 text-xs font-bold uppercase tracking-wide text-gray-500">Strength</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr>
+              <td class="px-4 py-3.5 font-semibold text-gray-900">Anderson v. Liberty Lobby</td>
+              <td class="px-4 py-3.5 text-gray-600 leading-snug">Different evidentiary standard; movant relies on credibility contest</td>
+              <td class="px-4 py-3.5 text-center"><span class="inline-block px-2.5 py-0.5 rounded text-xs font-bold bg-red-50 text-danger">Strong</span></td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3.5 font-semibold text-gray-900">Celotex v. Catrett</td>
+              <td class="px-4 py-3.5 text-gray-600 leading-snug">Movant failed initial burden of production</td>
+              <td class="px-4 py-3.5 text-center"><span class="inline-block px-2.5 py-0.5 rounded text-xs font-bold bg-red-50 text-danger">Strong</span></td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3.5 font-semibold text-gray-900">Matsushita v. Zenith</td>
+              <td class="px-4 py-3.5 text-gray-600 leading-snug">Applies to antitrust; no analogous implausibility here</td>
+              <td class="px-4 py-3.5 text-center"><span class="inline-block px-2.5 py-0.5 rounded text-xs font-bold bg-amber-50 text-amber-600">Medium</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALITY GATES -->
+  <section id="quality" class="bg-white border-t border-b border-gray-200 py-20">
+    <div class="max-w-3xl mx-auto px-6 sm:px-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Enforcement</p>
+      <h2 class="text-3xl font-bold leading-tight mb-4">Quality Gates That Refuse Mediocrity</h2>
+      <p class="text-base text-gray-600 leading-relaxed mb-8">The system enforces judgment through constraints. Expert judgment is knowing what to leave out.</p>
+
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 border-l-4 border-l-danger mb-8">
+        <p class="text-base font-semibold text-gray-900 leading-relaxed">"These limits are not preferences. They are enforced."</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="flex items-start gap-4 bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <svg class="text-danger flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div>
+            <div class="text-lg font-bold text-gray-900 mb-1">Maximum strategies per point</div>
+            <div class="text-base text-gray-500 leading-relaxed">No more than 3-4 strategic arguments. Focus wins.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <svg class="text-danger flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div>
+            <div class="text-lg font-bold text-gray-900 mb-1">Mandatory concessions</div>
+            <div class="text-base text-gray-500 leading-relaxed">When conceding, the system ensures a proper pivot.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <svg class="text-danger flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div>
+            <div class="text-lg font-bold text-gray-900 mb-1">Authority checks</div>
+            <div class="text-base text-gray-500 leading-relaxed">Every claim must be backed by verified legal authority.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <svg class="text-danger flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div>
+            <div class="text-lg font-bold text-gray-900 mb-1">Word budget enforcement</div>
+            <div class="text-base text-gray-500 leading-relaxed">Page limits are real. The system enforces them.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <svg class="text-danger flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div>
+            <div class="text-lg font-bold text-gray-900 mb-1">Repetition detection</div>
+            <div class="text-base text-gray-500 leading-relaxed">Redundant arguments are flagged and pruned.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <svg class="text-danger flex-shrink-0 mt-0.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div>
+            <div class="text-lg font-bold text-gray-900 mb-1">Pre-flight review</div>
+            <div class="text-base text-gray-500 leading-relaxed">See the full argument skeleton before any prose.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARGUMENT REVIEW BEFORE DRAFTING -->
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-6 sm:px-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Pre-Flight</p>
+      <h2 class="text-3xl font-bold leading-tight mb-4">Argument Review Before Drafting</h2>
+      <p class="text-base text-gray-600 leading-relaxed mb-8">You see the full argument skeleton before any prose is generated. Reorder, remove, or focus arguments. Governor checks run before generation.</p>
+
+      <div class="bg-gray-50 border border-gray-200 rounded-lg p-5 border-l-4 border-l-primary mb-8">
+        <p class="text-base font-semibold text-gray-900 leading-relaxed">"If the outline is weak, the brief will be too."</p>
+      </div>
+
+      <!-- Outline Mock -->
+      <div class="bg-white border border-gray-200 rounded-xl p-6">
+        <p class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Argument Skeleton</p>
+
+        <div class="flex items-center gap-3 px-4 py-3.5 rounded-md bg-blue-50 mb-1">
+          <span class="text-base font-bold text-gray-400 w-8">I.</span>
+          <span class="text-base text-gray-900 flex-1">Burden: Movant fails initial burden of production</span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded bg-red-50 text-danger">DISPOSITIVE</span>
+        </div>
+        <div class="flex items-center gap-3 px-4 py-3.5 border-b border-gray-100">
+          <span class="text-base font-bold text-gray-400 w-8">II.</span>
+          <span class="text-base text-gray-900 flex-1">Triable Issue: Expert testimony creates genuine dispute</span>
+        </div>
+        <div class="flex items-center gap-3 px-4 py-3.5 border-b border-gray-100">
+          <span class="text-base font-bold text-gray-400 w-8">III.</span>
+          <span class="text-base text-gray-900 flex-1">Distinction: Anderson standard misapplied</span>
+        </div>
+        <div class="flex items-center gap-3 px-4 py-3.5">
+          <span class="text-base font-bold text-gray-400 w-8">IV.</span>
+          <span class="text-base text-gray-900 flex-1">Concession: Plaintiff conduct (with pivot to comparative fault)</span>
+          <span class="text-xs font-bold px-2.5 py-1 rounded bg-blue-50 text-primary">CONCEDE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="bg-white border-t border-b border-gray-200 py-20">
+    <div class="max-w-3xl mx-auto px-6 sm:px-12">
+      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">Audience</p>
+      <h2 class="text-3xl font-bold leading-tight mb-8">Who This Is For</h2>
+      <ul class="space-y-5">
+        <li class="flex items-start gap-3">
+          <span class="text-primary mt-1.5 flex-shrink-0">
+            <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>
+          </span>
+          <span class="text-base text-gray-600 leading-relaxed"><strong class="text-gray-900">Litigation boutiques</strong> handling high-stakes motions where a single opposition can determine the outcome of a case and the trajectory of a client relationship.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-primary mt-1.5 flex-shrink-0">
+            <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>
+          </span>
+          <span class="text-base text-gray-600 leading-relaxed"><strong class="text-gray-900">Motion practice teams</strong> that cannot afford to lose, where every brief filed reflects the firm's judgment and every argument must earn its place on the page.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-primary mt-1.5 flex-shrink-0">
+            <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>
+          </span>
+          <span class="text-base text-gray-600 leading-relaxed"><strong class="text-gray-900">Senior litigators</strong> who already know how to write, but want a system that enforces the strategic discipline they apply instinctively, consistently across every matter.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="final-cta" class="py-20 text-center">
+    <div class="max-w-xl mx-auto px-6 sm:px-12">
+      <h2 class="text-3xl font-bold leading-tight mb-4">See an Opposition Built the Right Way</h2>
+      <p class="text-base text-gray-600 leading-relaxed mb-8">Strategy before prose. Judgment before generation. Constraints before output.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors cursor-pointer">
+          Request a Strategic Walkthrough
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-gray-600 border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">See How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-200 px-6 sm:px-12 py-8">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <img src="legawrite-logo-horizontal.png" alt="LegaWrite" class="h-5 w-auto">
+        <span class="text-xs text-gray-400">Opposition Tool&reg;, a LegaWrite platform</span>
+      </div>
+      <span class="text-xs text-gray-400">Strategy before prose.</span>
+    </div>
+  </footer>
+
+</body>
+</html>

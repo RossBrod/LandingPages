@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Style Humanizer | Make AI Drafts Sound Human | LegaWrite</title>
+    <meta name="description" content="Transform robotic AI drafts into writing that sounds authentically human. Motion Style Humanizer learns your voice and applies it to every motion and brief.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // LegaWrite Brand Colors
+                        'lw-navy': '#0A1628',
+                        'lw-blue': '#00A3FF',
+                        'lw-blue-dark': '#0077CC',
+                        'lw-gray': {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            300: '#CBD5E1',
+                            400: '#94A3B8',
+                            500: '#64748B',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1E293B',
+                            900: '#0F172A'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Mont font for logo if available */
+        @font-face {
+            font-family: 'Mont';
+            src: url('./assets/fonts/Mont-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .font-mont {
+            font-family: 'Mont', 'Inter', sans-serif;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus visible for keyboard nav */
+        :focus-visible {
+            outline: 2px solid #00A3FF;
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-lw-gray-50 text-lw-gray-900 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-4 left-4 right-4 z-50">
+        <div class="max-w-6xl mx-auto bg-white/95 backdrop-blur-sm border border-lw-gray-200 rounded-xl shadow-sm">
+            <div class="flex items-center justify-between px-6 py-4">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 cursor-pointer">
+                    <img src="legawrite-logo-horizontal.png" alt="LegaWrite" class="h-7 w-auto">
+                </a>
+
+                <!-- Nav Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#how-it-works" class="text-sm font-medium text-lw-gray-600 hover:text-lw-navy transition-colors duration-200 cursor-pointer">How It Works</a>
+                    <a href="#features" class="text-sm font-medium text-lw-gray-600 hover:text-lw-navy transition-colors duration-200 cursor-pointer">Features</a>
+                    <a href="#comparison" class="text-sm font-medium text-lw-gray-600 hover:text-lw-navy transition-colors duration-200 cursor-pointer">See the Difference</a>
+                </div>
+
+                <!-- CTAs -->
+                <div class="flex items-center gap-3">
+                    <a href="#demo" class="hidden sm:inline-flex text-sm font-medium text-lw-gray-600 hover:text-lw-navy transition-colors duration-200 cursor-pointer">
+                        View Example
+                    </a>
+                    <a href="#contact" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-lw-blue hover:bg-lw-blue-dark rounded-lg transition-colors duration-200 cursor-pointer">
+                        Request Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div>
+                    <p class="text-sm font-semibold text-lw-blue uppercase tracking-wide mb-4">
+                        Motion Style Humanizer
+                    </p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-lw-navy leading-tight mb-6">
+                        AI That Writes<br>
+                        <span class="text-lw-blue">Like You</span>
+                    </h1>
+                    <p class="text-lg text-lw-gray-600 leading-relaxed mb-8 max-w-xl">
+                        Upload your briefs. We extract <strong>your</strong> patterns, <strong>your</strong> phrases, <strong>your</strong> argumentative style. Then every AI draft sounds like you wrote it, not a machine.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#how-it-works" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-lw-blue hover:bg-lw-blue-dark rounded-lg transition-colors duration-200 cursor-pointer">
+                            See How Your Style Is Learned
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
+                        <a href="#comparison" class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-lw-navy bg-white border border-lw-gray-300 hover:border-lw-gray-400 rounded-lg transition-colors duration-200 cursor-pointer">
+                            View a Styled Example
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual: Before/After Comparison -->
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-xl border border-lw-gray-200 overflow-hidden">
+                        <!-- Tab Headers -->
+                        <div class="flex border-b border-lw-gray-200">
+                            <button id="tab-generic" class="flex-1 px-4 py-3 text-sm font-medium text-lw-gray-400 bg-lw-gray-50 border-b-2 border-transparent hover:text-lw-gray-600 transition-colors duration-200 cursor-pointer" onclick="showTab('generic')">
+                                Before: Robotic
+                            </button>
+                            <button id="tab-styled" class="flex-1 px-4 py-3 text-sm font-semibold text-lw-blue bg-white border-b-2 border-lw-blue cursor-pointer" onclick="showTab('styled')">
+                                After: Humanized
+                            </button>
+                        </div>
+
+                        <!-- Content Panels -->
+                        <div class="p-6">
+                            <!-- Generic Draft -->
+                            <div id="panel-generic" class="hidden">
+                                <div class="prose prose-sm max-w-none text-lw-gray-600">
+                                    <p class="text-sm leading-relaxed">
+                                        <span class="text-lw-gray-400 text-xs uppercase tracking-wide block mb-2">Motion to Compel Discovery</span>
+                                        Defendant has failed to provide adequate responses to Plaintiff's discovery requests. The discovery requests were served on January 15, 2025, and responses were due on February 14, 2025. Defendant's responses are deficient in several respects. First, Defendant objected to Interrogatory No. 5 on relevance grounds. Second, Defendant's response to Request for Production No. 3 was incomplete. Third, Defendant failed to identify witnesses as required by Interrogatory No. 8.
+                                    </p>
+                                    <p class="text-xs text-lw-gray-400 mt-4 italic">
+                                        Flat. Mechanical. Robotic. No human fingerprint.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Styled Draft -->
+                            <div id="panel-styled">
+                                <div class="prose prose-sm max-w-none text-lw-gray-900">
+                                    <p class="text-sm leading-relaxed">
+                                        <span class="text-lw-blue text-xs uppercase tracking-wide block mb-2">Motion to Compel Discovery</span>
+                                        <strong>The record is clear:</strong> Defendant has stonewalled discovery for 47 days. On January 15, 2025, Plaintiff served targeted interrogatories and document requests essential to proving liability. Defendant's February 14 responses were, in a word, evasive.
+                                    </p>
+                                    <p class="text-sm leading-relaxed mt-3">
+                                        Indeed, consider Interrogatory No. 5. Defendant claims "relevance" shields the identity of the project manager who approved the defective design. It does not. <em>See Hickman v. Taylor</em>, 329 U.S. 495 (1947) (discovery extends to any matter "relevant to the subject matter").
+                                    </p>
+                                    <p class="text-xs text-lw-blue mt-4 font-medium">
+                                        Humanized. Confident. Distinctively yours.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative elements -->
+                    <div class="absolute -z-10 top-8 -right-4 w-72 h-72 bg-lw-blue/10 rounded-full blur-3xl"></div>
+                    <div class="absolute -z-10 -bottom-4 -left-4 w-48 h-48 bg-lw-blue/5 rounded-full blur-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Humanizer Callout -->
+    <section class="py-12 px-4 bg-gradient-to-r from-lw-blue/5 via-lw-blue/10 to-lw-blue/5 border-y border-lw-blue/20">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-sm border border-lw-blue/20 mb-4">
+                <svg class="w-6 h-6 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                <span class="text-lg font-semibold text-lw-navy">Your Writing DNA, Captured</span>
+            </div>
+            <p class="text-xl md:text-2xl text-lw-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Upload your briefs. We extract <span class="font-semibold text-lw-navy">your</span> patterns, <span class="font-semibold text-lw-navy">your</span> phrases, <span class="font-semibold text-lw-navy">your</span> argumentative rhythm.
+                <br class="hidden sm:block">
+                Then every AI draft sounds like <span class="text-lw-blue font-semibold">you wrote it</span>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 px-4 bg-white border-y border-lw-gray-200">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-lw-navy mb-6">
+                AI Drafts Feel Robotic.<br>
+                <span class="text-lw-blue">Humanize Them.</span>
+            </h2>
+            <p class="text-xl text-lw-gray-600 mb-12 max-w-2xl mx-auto">
+                If it doesn't sound like you, it doesn't get used. That's why most attorneys abandon AI tools after one try.
+            </p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 bg-lw-gray-50 rounded-xl border border-lw-gray-100">
+                    <div class="w-10 h-10 bg-lw-gray-200 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-5 h-5 text-lw-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lw-navy mb-2">Robotic Output</h3>
+                    <p class="text-sm text-lw-gray-600">Drafts that scream "AI wrote this" at first glance</p>
+                </div>
+
+                <div class="p-6 bg-lw-gray-50 rounded-xl border border-lw-gray-100">
+                    <div class="w-10 h-10 bg-lw-gray-200 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-5 h-5 text-lw-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lw-navy mb-2">Excessive Revision</h3>
+                    <p class="text-sm text-lw-gray-600">Hours spent rewriting AI output to sound right</p>
+                </div>
+
+                <div class="p-6 bg-lw-gray-50 rounded-xl border border-lw-gray-100">
+                    <div class="w-10 h-10 bg-lw-gray-200 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-5 h-5 text-lw-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lw-navy mb-2">Tool Abandonment</h3>
+                    <p class="text-sm text-lw-gray-600">Attorneys try once, then never return</p>
+                </div>
+
+                <div class="p-6 bg-lw-gray-50 rounded-xl border border-lw-gray-100">
+                    <div class="w-10 h-10 bg-lw-gray-200 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-5 h-5 text-lw-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lw-navy mb-2">Recognition Fear</h3>
+                    <p class="text-sm text-lw-gray-600">Worry that clients or judges will notice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section - The Core Process -->
+    <section id="how-it-works" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-lw-navy mb-4">
+                    How We Learn <span class="text-lw-blue">Your</span> Voice
+                </h2>
+                <p class="text-lg text-lw-gray-600 max-w-2xl mx-auto">
+                    Upload your work. We extract your patterns. You control the profile. Every draft sounds like you.
+                </p>
+            </div>
+
+            <!-- Main Process Flow -->
+            <div class="bg-white rounded-2xl border border-lw-gray-200 shadow-lg overflow-hidden mb-12">
+                <div class="grid lg:grid-cols-4">
+                    <!-- Step 1: Upload -->
+                    <div class="p-8 border-b lg:border-b-0 lg:border-r border-lw-gray-200 relative">
+                        <div class="w-10 h-10 bg-lw-blue text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">1</div>
+                        <h3 class="text-lg font-semibold text-lw-navy mb-2">Upload Your Writing</h3>
+                        <p class="text-sm text-lw-gray-600 mb-4">
+                            Drop in 5-10 of your best briefs, motions, or memos. The more variety, the richer your profile.
+                        </p>
+                        <div class="bg-lw-gray-50 rounded-lg p-3 border border-dashed border-lw-gray-300">
+                            <div class="flex items-center gap-2 text-sm text-lw-gray-500">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                </svg>
+                                <span>Drop PDFs or .docx</span>
+                            </div>
+                        </div>
+                        <!-- Arrow -->
+                        <div class="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                            <svg class="w-6 h-6 text-lw-blue" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Extract -->
+                    <div class="p-8 border-b lg:border-b-0 lg:border-r border-lw-gray-200 relative bg-lw-blue/5">
+                        <div class="w-10 h-10 bg-lw-blue text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">2</div>
+                        <h3 class="text-lg font-semibold text-lw-navy mb-2">We Extract Your Patterns</h3>
+                        <p class="text-sm text-lw-gray-600 mb-4">
+                            AI analyzes your documents for 15+ style dimensions specific to legal writing.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-xs">
+                                <div class="w-2 h-2 bg-lw-blue rounded-full"></div>
+                                <span class="text-lw-gray-700">Opening strategy detected</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs">
+                                <div class="w-2 h-2 bg-lw-blue rounded-full"></div>
+                                <span class="text-lw-gray-700">Sentence rhythm mapped</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs">
+                                <div class="w-2 h-2 bg-lw-blue rounded-full"></div>
+                                <span class="text-lw-gray-700">Signature phrases found</span>
+                            </div>
+                        </div>
+                        <!-- Arrow -->
+                        <div class="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
+                            <svg class="w-6 h-6 text-lw-blue" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Your Profile -->
+                    <div class="p-8 border-b lg:border-b-0 lg:border-r border-lw-gray-200 relative">
+                        <div class="w-10 h-10 bg-lw-blue text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">3</div>
+                        <h3 class="text-lg font-semibold text-lw-navy mb-2">Your Editable Profile</h3>
+                        <p class="text-sm text-lw-gray-600 mb-4">
+                            Review and fine-tune your extracted style. Adjust any dimension. Add phrases. Make it perfect.
+                        </p>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-1 bg-lw-blue/10 text-lw-blue text-xs font-medium rounded">Formality: 4/5</span>
+                            <span class="px-2 py-1 bg-lw-blue/10 text-lw-blue text-xs font-medium rounded">Active: 85%</span>
+                        </div>
+                        <!-- Arrow -->
+                        <div class="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                            <svg class="w-6 h-6 text-lw-blue" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Humanized Drafts -->
+                    <div class="p-8 bg-lw-navy text-white">
+                        <div class="w-10 h-10 bg-lw-blue text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">4</div>
+                        <h3 class="text-lg font-semibold mb-2">Drafts That Sound Like You</h3>
+                        <p class="text-sm text-lw-gray-300 mb-4">
+                            Every motion, brief, and letter automatically applies your profile. Your voice, everywhere.
+                        </p>
+                        <div class="bg-white/10 rounded-lg p-3 border border-white/20">
+                            <p class="text-xs text-lw-blue font-medium">"The record is clear..."</p>
+                            <p class="text-xs text-white/70 mt-1">Your signature opening, applied automatically</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start Option -->
+            <div class="bg-lw-gray-50 rounded-xl p-6 border border-lw-gray-200">
+                <div class="flex flex-col md:flex-row md:items-center gap-6">
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-lw-navy mb-2">Want to start immediately?</h4>
+                        <p class="text-sm text-lw-gray-600">
+                            Choose a default avatar while you gather documents. Upgrade to your personalized profile anytime.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-2 bg-white text-lw-gray-700 text-sm font-medium rounded-lg border border-lw-gray-200 cursor-pointer hover:border-lw-blue hover:text-lw-blue transition-colors">The Persuader</span>
+                        <span class="px-3 py-2 bg-white text-lw-gray-700 text-sm font-medium rounded-lg border border-lw-gray-200 cursor-pointer hover:border-lw-blue hover:text-lw-blue transition-colors">The Analyst</span>
+                        <span class="px-3 py-2 bg-white text-lw-gray-700 text-sm font-medium rounded-lg border border-lw-gray-200 cursor-pointer hover:border-lw-blue hover:text-lw-blue transition-colors">The Counselor</span>
+                        <span class="px-3 py-2 bg-white text-lw-gray-700 text-sm font-medium rounded-lg border border-lw-gray-200 cursor-pointer hover:border-lw-blue hover:text-lw-blue transition-colors">The Scholar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Editable Profile Section -->
+    <section id="features" class="py-20 px-4 bg-lw-navy">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Your Style Profile: <span class="text-lw-blue">Fully Editable</span>
+                </h2>
+                <p class="text-lg text-lw-gray-300 max-w-2xl mx-auto">
+                    We extract it. You own it. Adjust any dimension. Add your phrases. Remove what doesn't fit. This is <em>your</em> writing DNA.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-8">
+                <!-- Left: Dimensions List -->
+                <div class="lg:col-span-2 space-y-4">
+                    <p class="text-sm text-lw-gray-400 uppercase tracking-wide mb-4">15+ Dimensions Extracted From Your Writing</p>
+
+                    <div class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-lw-blue/50 transition-colors cursor-pointer">
+                        <div class="w-8 h-8 bg-lw-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-1">Opening Strategy</h3>
+                            <p class="text-sm text-lw-gray-400">Factual hook, legal standard, theme, or direct ask</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-lw-blue/50 transition-colors cursor-pointer">
+                        <div class="w-8 h-8 bg-lw-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-1">Counterargument Handling</h3>
+                            <p class="text-sm text-lw-gray-400">Acknowledge-rebut, preemptive, or strategic ignore</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-lw-blue/50 transition-colors cursor-pointer">
+                        <div class="w-8 h-8 bg-lw-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-1">Argument Sequencing</h3>
+                            <p class="text-sm text-lw-gray-400">Strongest first, build to climax, or issue-by-issue</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-lw-blue/50 transition-colors cursor-pointer">
+                        <div class="w-8 h-8 bg-lw-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white mb-1">Voice & Certainty</h3>
+                            <p class="text-sm text-lw-gray-400">Active/passive balance, hedging tendency, directness</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-lw-gray-500 pt-2">+ Formality, paragraph length, citation style, rhetorical devices, and more...</p>
+                </div>
+
+                <!-- Right: Interactive Profile Card -->
+                <div class="lg:col-span-3">
+                    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                        <!-- Header -->
+                        <div class="px-6 py-4 bg-lw-gray-50 border-b border-lw-gray-200 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-lw-blue rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">JD</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lw-navy">Jane Doe's Style Profile</h3>
+                                    <p class="text-xs text-lw-gray-500">Extracted from 8 documents · Last updated 2 days ago</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded">Active</span>
+                        </div>
+
+                        <div class="p-6 space-y-6">
+                            <!-- Sliders Section -->
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <!-- Formality Slider -->
+                                <div>
+                                    <div class="flex justify-between text-sm mb-2">
+                                        <span class="text-lw-gray-600">Formality Level</span>
+                                        <span class="font-medium text-lw-navy">4/5</span>
+                                    </div>
+                                    <div class="relative h-2 bg-lw-gray-200 rounded-full">
+                                        <div class="absolute h-full w-4/5 bg-gradient-to-r from-lw-blue to-lw-blue-dark rounded-full"></div>
+                                        <div class="absolute top-1/2 left-[80%] -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white border-2 border-lw-blue rounded-full shadow cursor-pointer"></div>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-lw-gray-400 mt-1">
+                                        <span>Casual</span>
+                                        <span>Formal</span>
+                                    </div>
+                                </div>
+
+                                <!-- Active Voice -->
+                                <div>
+                                    <div class="flex justify-between text-sm mb-2">
+                                        <span class="text-lw-gray-600">Active Voice</span>
+                                        <span class="font-medium text-lw-navy">85%</span>
+                                    </div>
+                                    <div class="relative h-2 bg-lw-gray-200 rounded-full">
+                                        <div class="absolute h-full w-[85%] bg-gradient-to-r from-lw-blue to-lw-blue-dark rounded-full"></div>
+                                        <div class="absolute top-1/2 left-[85%] -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white border-2 border-lw-blue rounded-full shadow cursor-pointer"></div>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-lw-gray-400 mt-1">
+                                        <span>Passive</span>
+                                        <span>Active</span>
+                                    </div>
+                                </div>
+
+                                <!-- Hedging -->
+                                <div>
+                                    <div class="flex justify-between text-sm mb-2">
+                                        <span class="text-lw-gray-600">Hedging Tendency</span>
+                                        <span class="font-medium text-lw-navy">2/5</span>
+                                    </div>
+                                    <div class="relative h-2 bg-lw-gray-200 rounded-full">
+                                        <div class="absolute h-full w-2/5 bg-gradient-to-r from-lw-blue to-lw-blue-dark rounded-full"></div>
+                                        <div class="absolute top-1/2 left-[40%] -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white border-2 border-lw-blue rounded-full shadow cursor-pointer"></div>
+                                    </div>
+                                    <div class="flex justify-between text-xs text-lw-gray-400 mt-1">
+                                        <span>Direct</span>
+                                        <span>Qualified</span>
+                                    </div>
+                                </div>
+
+                                <!-- Paragraph Length -->
+                                <div>
+                                    <div class="flex justify-between text-sm mb-2">
+                                        <span class="text-lw-gray-600">Paragraph Length</span>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <span class="px-3 py-1 bg-lw-gray-100 text-lw-gray-600 text-xs rounded-lg cursor-pointer hover:bg-lw-gray-200">Short</span>
+                                        <span class="px-3 py-1 bg-lw-blue text-white text-xs font-medium rounded-lg">Medium</span>
+                                        <span class="px-3 py-1 bg-lw-gray-100 text-lw-gray-600 text-xs rounded-lg cursor-pointer hover:bg-lw-gray-200">Long</span>
+                                        <span class="px-3 py-1 bg-lw-gray-100 text-lw-gray-600 text-xs rounded-lg cursor-pointer hover:bg-lw-gray-200">Varied</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dropdown -->
+                            <div>
+                                <label class="text-sm text-lw-gray-600 block mb-2">Opening Strategy</label>
+                                <div class="relative">
+                                    <select class="w-full px-4 py-2.5 bg-white border border-lw-gray-300 rounded-lg text-sm text-lw-navy font-medium appearance-none cursor-pointer focus:outline-none focus:border-lw-blue">
+                                        <option selected>Factual Hook — Lead with compelling fact</option>
+                                        <option>Legal Standard — State applicable law first</option>
+                                        <option>Theme Statement — Frame the dispute</option>
+                                        <option>Direct Ask — State relief requested</option>
+                                    </select>
+                                    <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lw-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Signature Phrases - Editable Tags -->
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm text-lw-gray-600">Signature Phrases</span>
+                                    <button class="text-xs text-lw-blue hover:underline cursor-pointer">+ Add phrase</button>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center gap-1 px-2 py-1 bg-green-50 text-green-700 text-xs rounded border border-green-200">
+                                        "the record is clear"
+                                        <button class="hover:text-green-900 cursor-pointer">×</button>
+                                    </span>
+                                    <span class="inline-flex items-center gap-1 px-2 py-1 bg-green-50 text-green-700 text-xs rounded border border-green-200">
+                                        "Indeed,"
+                                        <button class="hover:text-green-900 cursor-pointer">×</button>
+                                    </span>
+                                    <span class="inline-flex items-center gap-1 px-2 py-1 bg-green-50 text-green-700 text-xs rounded border border-green-200">
+                                        "critically"
+                                        <button class="hover:text-green-900 cursor-pointer">×</button>
+                                    </span>
+                                    <span class="inline-flex items-center gap-1 px-2 py-1 bg-green-50 text-green-700 text-xs rounded border border-green-200">
+                                        "cannot be disputed"
+                                        <button class="hover:text-green-900 cursor-pointer">×</button>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Avoided Phrases -->
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm text-lw-gray-600">Phrases to Avoid</span>
+                                    <button class="text-xs text-lw-blue hover:underline cursor-pointer">+ Add phrase</button>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center gap-1 px-2 py-1 bg-red-50 text-red-600 text-xs rounded border border-red-200">
+                                        "Additionally"
+                                        <button class="hover:text-red-800 cursor-pointer">×</button>
+                                    </span>
+                                    <span class="inline-flex items-center gap-1 px-2 py-1 bg-red-50 text-red-600 text-xs rounded border border-red-200">
+                                        "It is important to note"
+                                        <button class="hover:text-red-800 cursor-pointer">×</button>
+                                    </span>
+                                    <span class="inline-flex items-center gap-1 px-2 py-1 bg-red-50 text-red-600 text-xs rounded border border-red-200">
+                                        "In conclusion"
+                                        <button class="hover:text-red-800 cursor-pointer">×</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="px-6 py-4 bg-lw-gray-50 border-t border-lw-gray-200 flex items-center justify-between">
+                            <p class="text-xs text-lw-gray-500">Changes auto-save and apply to all future drafts</p>
+                            <button class="px-4 py-2 bg-lw-blue text-white text-sm font-medium rounded-lg hover:bg-lw-blue-dark transition-colors cursor-pointer">
+                                Preview Draft With This Style
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Comparison Section -->
+    <section id="comparison" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-lw-navy mb-4">
+                    Robotic vs. <span class="text-lw-blue">Humanized</span>
+                </h2>
+                <p class="text-lg text-lw-gray-600">
+                    Same motion. Same law. One sounds like a template. The other sounds like you.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Generic Version -->
+                <div class="bg-white rounded-2xl border border-lw-gray-200 overflow-hidden">
+                    <div class="px-6 py-4 bg-lw-gray-100 border-b border-lw-gray-200">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-lw-gray-300"></div>
+                            <span class="font-semibold text-lw-gray-500">Robotic AI Draft</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-lw-gray-600 leading-relaxed mb-4">
+                            Plaintiff respectfully moves this Court to compel Defendant to provide complete responses to discovery. Defendant's current responses are inadequate and fail to comply with the Federal Rules of Civil Procedure.
+                        </p>
+                        <p class="text-sm text-lw-gray-600 leading-relaxed mb-4">
+                            First, Defendant's objection to Interrogatory No. 5 lacks merit. The information requested is relevant to the claims and defenses in this action. Second, Defendant's response to Request for Production No. 12 is incomplete because it does not include all responsive documents.
+                        </p>
+                        <p class="text-sm text-lw-gray-600 leading-relaxed">
+                            For the foregoing reasons, Plaintiff requests that the Court grant this motion and order Defendant to provide complete responses within fourteen days.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Styled Version -->
+                <div class="bg-white rounded-2xl border-2 border-lw-blue overflow-hidden shadow-lg">
+                    <div class="px-6 py-4 bg-lw-blue/5 border-b border-lw-blue/20">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-lw-blue"></div>
+                            <span class="font-semibold text-lw-blue">Humanized Draft</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-lw-gray-900 leading-relaxed mb-4">
+                            <strong>The record is clear:</strong> Defendant's discovery responses are not merely deficient, they are obstructionist. Four months into litigation, Plaintiff still lacks basic documents central to its claims.
+                        </p>
+                        <p class="text-sm text-lw-gray-900 leading-relaxed mb-4">
+                            Consider Interrogatory No. 5. Defendant claims "relevance" shields internal communications about the product defect. Indeed, these are the very communications that prove knowledge. <em>See Fed. R. Civ. P. 26(b)(1)</em> (scope extends to any matter relevant to any party's claim or defense).
+                        </p>
+                        <p class="text-sm text-lw-gray-900 leading-relaxed">
+                            The Court should compel complete responses within ten days. Critically, further delay prejudices Plaintiff's ability to meet the discovery cutoff. Half-measures will not suffice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infrastructure Section -->
+    <section class="py-20 px-4 bg-white border-y border-lw-gray-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-lw-navy mb-4">
+                    Designed for Litigation, Not Marketing Copy
+                </h2>
+                <p class="text-lg text-lw-gray-600 max-w-2xl mx-auto">
+                    Style is applied on top of verified legal content, not instead of it.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center p-6">
+                    <div class="w-12 h-12 bg-lw-blue/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-6 h-6 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lw-navy mb-2">Document-Type Aware</h3>
+                    <p class="text-sm text-lw-gray-600">Different voice for motions vs. client letters</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="w-12 h-12 bg-lw-blue/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-6 h-6 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lw-navy mb-2">Litigation Patterns</h3>
+                    <p class="text-sm text-lw-gray-600">Preserves legal argumentation structure</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="w-12 h-12 bg-lw-blue/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-6 h-6 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lw-navy mb-2">No Hallucinated Authority</h3>
+                    <p class="text-sm text-lw-gray-600">Citations verified separately from style</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="w-12 h-12 bg-lw-blue/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                        <svg class="w-6 h-6 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lw-navy mb-2">Style ≠ Substance</h3>
+                    <p class="text-sm text-lw-gray-600">Voice changes, legal accuracy stays constant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Integration Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-lw-navy mb-6">
+                        Platform-Wide Consistency
+                    </h2>
+                    <p class="text-lg text-lw-gray-600 mb-8">
+                        One style profile. Every document. Across the entire LegaWrite platform.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <svg class="w-5 h-5 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-lw-gray-700">Motions to Compel</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <svg class="w-5 h-5 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-lw-gray-700">Opposition Briefs</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <svg class="w-5 h-5 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-lw-gray-700">Motions for Summary Judgment</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <svg class="w-5 h-5 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-lw-gray-700">Reply Briefs</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <svg class="w-5 h-5 text-lw-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-lw-gray-700">Client Letters</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform Diagram -->
+                <div class="bg-lw-gray-50 rounded-2xl p-8 border border-lw-gray-200">
+                    <div class="space-y-4">
+                        <!-- Top row: Document types -->
+                        <div class="grid grid-cols-4 gap-3">
+                            <div class="bg-white rounded-lg p-3 text-center border border-lw-gray-200 shadow-sm">
+                                <svg class="w-6 h-6 text-lw-gray-400 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <span class="text-xs text-lw-gray-600">Motions</span>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center border border-lw-gray-200 shadow-sm">
+                                <svg class="w-6 h-6 text-lw-gray-400 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                                </svg>
+                                <span class="text-xs text-lw-gray-600">Oppositions</span>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center border border-lw-gray-200 shadow-sm">
+                                <svg class="w-6 h-6 text-lw-gray-400 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+                                </svg>
+                                <span class="text-xs text-lw-gray-600">MSJs</span>
+                            </div>
+                            <div class="bg-white rounded-lg p-3 text-center border border-lw-gray-200 shadow-sm">
+                                <svg class="w-6 h-6 text-lw-gray-400 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span class="text-xs text-lw-gray-600">Letters</span>
+                            </div>
+                        </div>
+
+                        <!-- Arrows -->
+                        <div class="flex justify-center">
+                            <svg class="w-6 h-6 text-lw-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                        </div>
+
+                        <!-- Style Layer -->
+                        <div class="bg-gradient-to-r from-lw-blue to-lw-blue-dark rounded-xl p-4 text-center shadow-lg ring-4 ring-lw-blue/20">
+                            <div class="flex items-center justify-center gap-2 mb-1">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                </svg>
+                                <span class="font-bold text-white">HUMANIZER LAYER</span>
+                            </div>
+                            <span class="text-xs text-white/90">Robotic AI in, human voice out</span>
+                        </div>
+
+                        <!-- Arrows -->
+                        <div class="flex justify-center">
+                            <svg class="w-6 h-6 text-lw-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                        </div>
+
+                        <!-- LegaWrite Platform -->
+                        <div class="bg-lw-navy rounded-xl p-4 text-center">
+                            <span class="font-semibold text-white">LegaWrite Drafting Engine</span>
+                            <p class="text-xs text-lw-gray-400 mt-1">Citation verification, legal accuracy, hallucination prevention</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Section -->
+    <section class="py-20 px-4 bg-lw-gray-100">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-lw-navy mb-6">
+                Humanized Drafts Get <span class="text-lw-blue">Actually Used</span>
+            </h2>
+            <p class="text-xl text-lw-gray-600 mb-12">
+                When AI output sounds human, attorneys stop abandoning it. That's the adoption unlock.
+            </p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-lw-gray-200">
+                    <div class="text-3xl font-bold text-lw-blue mb-2">60%</div>
+                    <p class="text-sm text-lw-gray-600">Less revision time on styled drafts</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-lw-gray-200">
+                    <div class="text-3xl font-bold text-lw-blue mb-2">3x</div>
+                    <p class="text-sm text-lw-gray-600">Higher attorney return usage</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-lw-gray-200">
+                    <div class="text-3xl font-bold text-lw-blue mb-2">85%</div>
+                    <p class="text-sm text-lw-gray-600">Attorneys say "sounds like me"</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-lw-gray-200">
+                    <div class="text-3xl font-bold text-lw-blue mb-2">High</div>
+                    <p class="text-sm text-lw-gray-600">Switching cost once learned</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact" class="py-24 px-4 bg-lw-navy">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Ready to <span class="text-lw-blue">Humanize</span> Your Drafts?
+            </h2>
+            <p class="text-lg text-lw-gray-300 mb-10 max-w-xl mx-auto">
+                Upload a sample brief. We'll show you exactly how Motion Style Humanizer transforms robotic AI output into writing that sounds like you.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-lw-navy bg-white hover:bg-lw-gray-100 rounded-lg transition-colors duration-200 cursor-pointer">
+                    Request a Style Walkthrough
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+                <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white border border-white/30 hover:bg-white/10 rounded-lg transition-colors duration-200 cursor-pointer">
+                    Schedule a Demo
+                </a>
+            </div>
+
+            <p class="text-sm text-lw-gray-400 mt-8">
+                A capability of <span class="text-lw-blue font-semibold">LegaWrite</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-lw-gray-900 border-t border-lw-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 cursor-pointer">
+                    <svg class="h-6 w-auto" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 8L16 4L28 8L16 16L4 8Z" fill="#00A3FF"/>
+                        <path d="M4 8V20L16 28V16L4 8Z" fill="#0077CC"/>
+                        <path d="M28 8V20L16 28V16L28 8Z" fill="#00A3FF" fill-opacity="0.7"/>
+                        <text x="36" y="22" fill="#FFFFFF" font-size="14" font-weight="600" font-family="Inter, sans-serif">LEGA<tspan fill="#00A3FF">WRITE</tspan></text>
+                    </svg>
+                </a>
+
+                <div class="flex items-center gap-8 text-sm text-lw-gray-400">
+                    <a href="#" class="hover:text-white transition-colors cursor-pointer">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors cursor-pointer">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors cursor-pointer">Contact</a>
+                </div>
+
+                <p class="text-sm text-lw-gray-500">
+                    Motion Style Humanizer is a trademark of LegaWrite.ai
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching for hero comparison
+        function showTab(tab) {
+            const genericTab = document.getElementById('tab-generic');
+            const styledTab = document.getElementById('tab-styled');
+            const genericPanel = document.getElementById('panel-generic');
+            const styledPanel = document.getElementById('panel-styled');
+
+            if (tab === 'generic') {
+                genericTab.classList.remove('text-lw-gray-400', 'bg-lw-gray-50', 'border-transparent');
+                genericTab.classList.add('text-lw-blue', 'bg-white', 'border-lw-blue', 'font-semibold');
+                styledTab.classList.remove('text-lw-blue', 'bg-white', 'border-lw-blue', 'font-semibold');
+                styledTab.classList.add('text-lw-gray-400', 'bg-lw-gray-50', 'border-transparent');
+                genericPanel.classList.remove('hidden');
+                styledPanel.classList.add('hidden');
+            } else {
+                styledTab.classList.remove('text-lw-gray-400', 'bg-lw-gray-50', 'border-transparent');
+                styledTab.classList.add('text-lw-blue', 'bg-white', 'border-lw-blue', 'font-semibold');
+                genericTab.classList.remove('text-lw-blue', 'bg-white', 'border-lw-blue', 'font-semibold');
+                genericTab.classList.add('text-lw-gray-400', 'bg-lw-gray-50', 'border-transparent');
+                styledPanel.classList.remove('hidden');
+                genericPanel.classList.add('hidden');
+            }
+        }
+
+        // Smooth scroll offset for fixed navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Features - LegaWrite Litigation Platform</title>
+  <meta name="description" content="Explore the LegaWrite litigation platform roadmap: MSJ validation, discovery strategy, motion opposition, and procedural intelligence - all connected.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#111726',
+            primary: { DEFAULT: '#1976D2', dark: '#1565C0' },
+            accent: { DEFAULT: '#B45309', light: '#D97706' },
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-navy font-sans antialiased">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200" aria-label="Main navigation">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <div class="flex items-center gap-3">
+        <img src="legawrite-logo-horizontal.png" alt="LegaWrite" class="h-7">
+        <span class="hidden sm:block w-px h-6 bg-gray-300" aria-hidden="true"></span>
+        <span class="hidden sm:block text-sm font-medium text-gray-600">Litigation Platform</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#platform" class="hidden md:inline text-sm text-gray-600 hover:text-primary transition-colors duration-200 cursor-pointer">Platform</a>
+        <a href="#modules" class="hidden md:inline text-sm text-gray-600 hover:text-primary transition-colors duration-200 cursor-pointer">Modules</a>
+        <a href="#cta" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors duration-200 cursor-pointer">Request Early Access</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-20 sm:py-28 px-4" aria-label="Hero">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-sm font-semibold text-primary uppercase tracking-wide mb-4">Platform Roadmap</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+        Four Modules. One Litigation Platform.
+      </h1>
+      <p class="mt-6 text-2xl text-gray-600 mx-auto">
+        LegaWrite is building a connected litigation system where every stage. Shares intelligence, enforces quality, prevents failure. From discovery through filing
+      </p>
+      
+    </div>
+  </section>
+
+  <!-- Platform Overview -->
+  <section id="platform" class="bg-white border-y border-gray-200 py-16 sm:py-20 px-4" aria-label="Platform overview">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-2xl sm:text-3xl font-bold">Connected Litigation Intelligence</h2>
+        <p class="mt-3 text-gray-600 max-w-3xl mx-auto">Each module handles a distinct phase of litigation. 
+          Together: discovery findings inform your MSJ, opposition strategy draws on doctrinal graph, and procedural logic governs.</p>
+      </div>
+
+      <!-- Platform Flow -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 mb-6">
+        <svg class="hidden sm:block w-5 h-5 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        
+        <a href="discovery-landing.html" class="flex flex-col items-center gap-1.5 px-4 sm:px-6 group cursor-pointer">
+          <svg class="w-7 h-7 text-primary group-hover:text-primary-dark transition-colors duration-200" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="m21 21-4.35-4.35"/></svg>
+          <span class="text-gray-600 font-semibold text-navy group-hover:text-primary transition-colors duration-200">Discovery Framework</span>
+        </a>
+        <svg class="hidden sm:block w-5 h-5 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        <a href="opposition.html" class="flex flex-col items-center gap-1.5 px-4 sm:px-6 group cursor-pointer">
+          <svg class="w-7 h-7 text-primary group-hover:text-primary-dark transition-colors duration-200" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span class="text-gray-600 font-semibold text-navy group-hover:text-primary transition-colors duration-200">Opposition Framework</span>
+        </a>
+        <svg class="hidden sm:block w-5 h-5 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        <a href="msj.html" class="flex flex-col items-center gap-1.5 px-4 sm:px-6 group cursor-pointer">
+          <svg class="w-7 h-7 text-primary group-hover:text-primary-dark transition-colors duration-200" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          <span class="text-gray-600 font-semibold text-navy group-hover:text-primary transition-colors duration-200">MSJ Framework</span>
+        </a>
+        <svg class="hidden sm:block w-5 h-5 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        <a href="motionlogic.html" class="flex flex-col items-center gap-1.5 px-4 sm:px-6 group cursor-pointer">
+          <svg class="w-7 h-7 text-primary group-hover:text-primary-dark transition-colors duration-200" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>
+          <span class="text-gray-600 font-semibold text-navy group-hover:text-primary transition-colors duration-200">Procedural Intelligence</span>
+        </a>
+
+        <svg class="hidden sm:block w-5 h-5 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+
+        <a href="style-humanizer.html" class="flex flex-col items-center gap-1.5 px-4 sm:px-6 group cursor-pointer">
+          <svg class="w-7 h-7 text-primary group-hover:text-primary-dark transition-colors duration-200" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          <span class="text-gray-600 font-semibold text-navy group-hover:text-primary transition-colors duration-200">Style Humanizer</span>
+        </a>
+
+        <svg class="hidden sm:block w-5 h-5 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        
+
+
+      </div>
+      <p class="text-center text-sm text-gray-500 italic">Each module feeds intelligence to the next.</p>
+    </div>
+  </section>
+
+  <!-- Modules -->
+  <section id="modules" class="py-16 sm:py-20 px-4" aria-label="Platform modules">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-2xl sm:text-3xl font-bold">Platform Modules</h2>
+        <p class="mt-3 text-gray-600">Each module is purpose-built for a critical phase of litigation.</p>
+      </div>
+
+      <div class="space-y-8">
+
+        <!-- Module 1: MSJ AI -->
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <div class="p-8 lg:p-10">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              </span>
+              <h3 class="text-xl font-bold text-navy">MSJ AI Framework</h3>
+              <span class="ml-auto text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">Motion for Summary Judgment</span>
+            </div>
+            <p class="text-gray-600 mb-6 max-w-3xl">
+              An intelligent platform that validates materiality, admissibility, and legal sufficiency before your MSJ ever reaches a judge. Every fact and argument passes through four validation pillars before it enters the motion.
+            </p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Materiality Certainty</h4>
+                <p class="text-sm text-gray-500">Anchors every fact to an element, jurisdiction, and legal effect.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Admissibility Assurance</h4>
+                <p class="text-sm text-gray-500">Pre-trial judicial screening for hearsay, authentication, and foundation.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Doctrinal Precision</h4>
+                <p class="text-sm text-gray-500">Tracks doctrinal drift and cross-jurisdictional divergence in real time.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Adversarial Testing</h4>
+                <p class="text-sm text-gray-500">Generates counterarguments and strengthens positions until they survive attack.</p>
+              </div>
+            </div>
+            <div class="mt-6">
+              <a href="msj.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-200 cursor-pointer">
+                Learn more about MSJ AI
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 2: Discovery Strategy Engine -->
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <div class="p-8 lg:p-10">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="m21 21-4.35-4.35"/></svg>
+              </span>
+              <h3 class="text-xl font-bold text-navy">Discovery Strategy Engine</h3>
+              <span class="ml-auto text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">Interrogatories &amp; Document Requests</span>
+            </div>
+            <p class="text-gray-600 mb-6 max-w-3xl">
+              Starts from the complaint, maps every cause of action to the elements that must be proven, and generates objection-resistant interrogatories. Detects evasive responses, contradictions, and bad-faith objections - then turns every gap into a court-ready motion to compel.
+            </p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Strategy-First Drafting</h4>
+                <p class="text-sm text-gray-500">Every question traces to an element of proof and a strategic objective.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Objection-Resistant Design</h4>
+                <p class="text-sm text-gray-500">Questions pre-tested against common objection patterns before delivery.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Evasion Detection</h4>
+                <p class="text-sm text-gray-500">Identifies boilerplate objections, contradictions, and incomplete answers.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Motion to Compel</h4>
+                <p class="text-sm text-gray-500">Findings feed directly into court-ready enforcement documents.</p>
+              </div>
+            </div>
+            <div class="mt-6">
+              <a href="discovery-landing.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-200 cursor-pointer">
+                Learn more about Discovery Strategy
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 3: Opposition Tool -->
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <div class="p-8 lg:p-10">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </span>
+              <h3 class="text-xl font-bold text-navy">Opposition Tool</h3>
+              <span class="ml-auto text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">Strategic Motion Opposition</span>
+            </div>
+            <p class="text-gray-600 mb-6 max-w-3xl">
+              Analyzes the motion filed against you, forces a deliberate strategic posture, and enforces quality gates before anything is written. Opposition is a strategic decision, not a writing task.
+            </p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Attack Analysis</h4>
+                <p class="text-sm text-gray-500">Extracts their ask, their frame, and their key arguments automatically.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Strategic Postures</h4>
+                <p class="text-sm text-gray-500">Reframe, Point-by-Point, or Hybrid - choose how to fight before writing.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Authority Distinction</h4>
+                <p class="text-sm text-gray-500">Every opponent-cited case analyzed and ranked by distinction strength.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Quality Gates</h4>
+                <p class="text-sm text-gray-500">Word budgets, repetition detection, and pre-flight review enforced.</p>
+              </div>
+            </div>
+            <div class="mt-6">
+              <a href="opposition.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-200 cursor-pointer">
+                Learn more about Opposition Tool
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 4: MotionLogic -->
+        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+          <div class="p-8 lg:p-10">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>
+              </span>
+              <h3 class="text-xl font-bold text-navy">MotionLogic</h3>
+              <span class="ml-auto text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">Procedural Intelligence Framework</span>
+            </div>
+            <p class="text-gray-600 mb-6 max-w-3xl">
+              A procedural execution layer that classifies the litigation problem, determines court authority, selects the correct motion vehicle, and prevents irreversible filing errors - before they happen.
+            </p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Issue Classification</h4>
+                <p class="text-sm text-gray-500">Clerical, jurisdictional, merits-based, or interlocutory - classified first.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Motion Selection</h4>
+                <p class="text-sm text-gray-500">Selects safe vehicles, flags dangerous ones, rejects waiver risks.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Standards &amp; Scope</h4>
+                <p class="text-sm text-gray-500">Generates authority, scope boundaries, and decision rules per motion.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Constrained Scaffolding</h4>
+                <p class="text-sm text-gray-500">Required sections only, correct order, forbidden arguments excluded.</p>
+              </div>
+            </div>
+            <div class="mt-6">
+              <a href="motionlogic.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-200 cursor-pointer">
+                Learn more about MotionLogic
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 5: Motion Style Humanizer -->
+        <div class="bg-white border-2 border-primary/30 rounded-xl overflow-hidden relative">
+          <div class="absolute top-4 right-4">
+            <span class="inline-flex items-center px-2 py-1 text-xs font-semibold text-white bg-primary rounded-full">NEW</span>
+          </div>
+          <div class="p-8 lg:p-10">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              </span>
+              <h3 class="text-xl font-bold text-navy">Motion Style Humanizer</h3>
+              <span class="ml-auto text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">Attorney Style Profiling</span>
+            </div>
+            <p class="text-gray-600 mb-6 max-w-3xl">
+              Upload your briefs. We extract <strong>your</strong> patterns, <strong>your</strong> phrases, <strong>your</strong> argumentative rhythm. Then every AI draft sounds like you wrote it. Not robotic, not generic: distinctively yours.
+            </p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Your Writing DNA</h4>
+                <p class="text-sm text-gray-500">Upload 5-10 briefs. We extract 15+ style dimensions unique to your voice.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Editable Profile</h4>
+                <p class="text-sm text-gray-500">Review, adjust, and fine-tune your extracted style. Add phrases. Remove clichés.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Humanized Output</h4>
+                <p class="text-sm text-gray-500">Every draft applies your profile. Robotic AI in, your authentic voice out.</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <h4 class="text-sm font-semibold text-navy mb-1">Legal-Specific</h4>
+                <p class="text-sm text-gray-500">Opening strategies, counterargument handling, formality, citation style: lawyer patterns.</p>
+              </div>
+            </div>
+            <div class="mt-6">
+              <a href="style-humanizer.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark transition-colors duration-200 cursor-pointer">
+                Learn more about Style Humanizer
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How They Connect -->
+  <section class="bg-white border-y border-gray-200 py-16 sm:py-20 px-4" aria-label="How modules connect">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold">How They Connect</h2>
+        <p class="mt-3 text-gray-600 max-w-2xl mx-auto">Shares intelligence that the others consume, part of LitigationOS Eco system</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="border border-gray-200 rounded-xl p-6">
+          <svg class="w-7 h-7 text-primary mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
+          <h3 class="font-bold text-navy text-lg mb-1">Discovery feeds MSJ</h3>
+          <p class="text-sm text-gray-600">Evasion findings and gap analysis from discovery become evidence flags in the MSJ admissibility pipeline.</p>
+        </div>
+        <div class="border border-gray-200 rounded-xl p-6">
+          <svg class="w-7 h-7 text-primary mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+          <h3 class="font-bold text-navy text-lg mb-1">MSJ informs Opposition</h3>
+          <p class="text-sm text-gray-600">Doctrinal analysis and adversarial testing from MSJ provide pre-built distinction libraries for opposition strategy.</p>
+        </div>
+        <div class="border border-gray-200 rounded-xl p-6">
+          <svg class="w-7 h-7 text-primary mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>
+          <h3 class="font-bold text-navy text-lg mb-1">MotionLogic governs all filings</h3>
+          <p class="text-sm text-gray-600">Procedural classification and scope enforcement apply to every motion generated by every module.</p>
+        </div>
+        <div class="border border-gray-200 rounded-xl p-6">
+          <svg class="w-7 h-7 text-primary mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          <h3 class="font-bold text-navy text-lg mb-1">Style Humanizer wraps all output</h3>
+          <p class="text-sm text-gray-600">Every draft from every module passes through your style profile. Robotic AI becomes your authentic voice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who This Is For -->
+  <section class="py-16 sm:py-20 px-4" aria-label="Who this is for">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">Who This Platform Is For</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white border border-gray-200 rounded-xl p-6 text-center">
+          <svg class="w-8 h-8 text-primary mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+          <h3 class="font-bold text-navy text-lg mb-2">Litigation Teams</h3>
+          <p class="text-sm text-gray-600">Full-cycle litigation support from discovery through dispositive motions.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-6 text-center">
+          <svg class="w-8 h-8 text-primary mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21"/></svg>
+          <h3 class="font-bold text-navy text-lg mb-2">High-Stakes Firms</h3>
+          <p class="text-sm text-gray-600">Procedural precision and adversarial depth on motions that cannot fail.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-6 text-center">
+          <svg class="w-8 h-8 text-primary mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21"/></svg>
+          <h3 class="font-bold text-navy text-lg mb-2">Insurers &amp; Enterprises</h3>
+          <p class="text-sm text-gray-600">Standardize litigation quality across panel counsel and reduce exposure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="bg-navy py-16 sm:py-20 px-4" aria-label="Call to action">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Get Early Access to the Platform</h2>
+      <p class="text-gray-400 mb-8 max-w-2xl mx-auto">We are building each module for precision, not speed. Request early access to see how LegaWrite is reshaping litigation from discovery through filing.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="#" class="inline-flex items-center px-6 py-3 text-sm font-semibold text-navy bg-white hover:bg-gray-100 rounded-lg transition-colors duration-200 cursor-pointer">Request Early Access</a>
+        <a href="#" class="inline-flex items-center px-6 py-3 text-sm font-semibold text-white border border-white/30 hover:border-white/60 rounded-lg transition-colors duration-200 cursor-pointer">See a Platform Walkthrough</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-navy border-t border-white/10 py-6 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-sm text-gray-500">LegaWrite Litigation Platform</p>
+      <p class="text-xs text-gray-600 mt-1">Patent pending</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legawrite — Discovery Strategy Engine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            slate: { 925: '#0c1222' },
+            brand: {
+              50: '#f0f4ff',
+              100: '#dbe4ff',
+              200: '#bac8ff',
+              500: '#4263eb',
+              600: '#3b5bdb',
+              700: '#364fc7',
+              800: '#1e3a6e',
+              900: '#162b52',
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-900 font-sans antialiased">
+
+  <!-- Back to Platform -->
+  <div class="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-white text-sm py-2 px-6">
+    <div class="max-w-6xl mx-auto">
+      <a href="upcoming-features.html" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors duration-200 cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        Back to Platform Overview
+      </a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-8 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 cursor-pointer">
+        <span class="text-lg font-semibold tracking-tight text-slate-900">legawrite<span class="text-brand-500">.ai</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-slate-500">
+        <a href="#strategy" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Strategy</a>
+        <a href="#interrogatories" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Interrogatories</a>
+        <a href="#detection" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Detection</a>
+        <a href="#analysis" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Analysis</a>
+        <a href="#enforcement" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Enforcement</a>
+      </div>
+      <a href="#demo" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition-colors duration-200 cursor-pointer">
+        Request Demo
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!-- HERO -->
+  <!-- ============================================================ -->
+  <section class="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-4">Discovery Strategy Engine</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-925 mb-6">
+        Designed to force answers,<br class="hidden md:block"> not just ask questions
+      </h1>
+      <p class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
+        Legawrite starts from what must be proven to win. It generates objection-resistant interrogatories, detects evasive responses and contradictions, and turns every gap into a court-ready motion to compel.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#demo" class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition-colors duration-200 cursor-pointer">
+          See Discovery Strategy in Action
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#example" class="inline-flex items-center px-6 py-3 text-base font-medium text-slate-600 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:border-slate-300 transition-colors duration-200 cursor-pointer">
+          View Example Output
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero UI Preview: 8-stage strategic pipeline -->
+    <div class="max-w-5xl mx-auto mt-16 md:mt-20">
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+          <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+          <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+          <div class="h-6 w-56 bg-slate-200 rounded ml-4"></div>
+        </div>
+
+        <!-- Row 1: Stages 1-4 (left to right) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="bg-white rounded-xl border border-slate-200 p-3 md:p-4">
+            <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-2">1. Complaint</div>
+            <div class="space-y-1.5">
+              <div class="h-2.5 bg-slate-100 rounded w-full"></div>
+              <div class="h-2.5 bg-slate-100 rounded w-5/6"></div>
+              <div class="h-2.5 bg-slate-100 rounded w-4/6"></div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-brand-200 p-3 md:p-4">
+            <div class="text-[10px] font-semibold text-brand-500 uppercase tracking-wider mb-2">2. Elements</div>
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-1.5">
+                <div class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></div>
+                <div class="h-2.5 bg-brand-50 rounded flex-1"></div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <div class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></div>
+                <div class="h-2.5 bg-brand-50 rounded flex-1"></div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <div class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></div>
+                <div class="h-2.5 bg-brand-50 rounded flex-1"></div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-brand-200 p-3 md:p-4">
+            <div class="text-[10px] font-semibold text-brand-500 uppercase tracking-wider mb-2">3. Objectives</div>
+            <div class="space-y-1.5">
+              <div class="h-2.5 bg-brand-100 rounded w-full"></div>
+              <div class="h-2.5 bg-brand-100 rounded w-4/5"></div>
+              <div class="h-2.5 bg-emerald-100 rounded w-3/5"></div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-emerald-200 p-3 md:p-4">
+            <div class="text-[10px] font-semibold text-emerald-600 uppercase tracking-wider mb-2">4. Discovery</div>
+            <div class="space-y-1.5">
+              <div class="px-2 py-1 bg-emerald-50 border border-emerald-100 rounded">
+                <div class="h-2 bg-emerald-200 rounded w-4/5"></div>
+              </div>
+              <div class="px-2 py-1 bg-emerald-50 border border-emerald-100 rounded">
+                <div class="h-2 bg-emerald-200 rounded w-3/5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 1 arrows (desktop) -->
+        <div class="hidden md:flex items-center justify-center gap-1 mt-2 mb-1 px-8">
+          <div class="flex-1 h-px bg-slate-200"></div>
+          <svg class="w-3.5 h-3.5 text-slate-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <div class="flex-1 h-px bg-brand-200"></div>
+          <svg class="w-3.5 h-3.5 text-brand-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <div class="flex-1 h-px bg-brand-200"></div>
+          <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <div class="flex-1 h-px bg-emerald-200"></div>
+        </div>
+
+        <!-- Wrap-around connector -->
+        <div class="hidden md:flex items-center justify-end pr-4 py-1">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </div>
+        <!-- Mobile wrap indicator -->
+        <div class="flex md:hidden items-center justify-center py-2">
+          <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </div>
+
+        <!-- Row 2: Stages 5-8 (left to right) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="bg-white rounded-xl border border-emerald-200 p-3 md:p-4">
+            <div class="text-[10px] font-semibold text-emerald-600 uppercase tracking-wider mb-2">5. Answers</div>
+            <div class="space-y-1.5">
+              <div class="h-2.5 bg-emerald-50 rounded w-full"></div>
+              <div class="h-2.5 bg-emerald-50 rounded w-4/5"></div>
+              <div class="h-2.5 bg-amber-50 rounded w-3/5"></div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-amber-200 p-3 md:p-4">
+            <div class="text-[10px] font-semibold text-amber-600 uppercase tracking-wider mb-2">6. Review Matrix</div>
+            <div class="space-y-1">
+              <div class="grid grid-cols-4 gap-1">
+                <div class="h-2.5 rounded bg-emerald-100"></div>
+                <div class="h-2.5 rounded bg-red-100"></div>
+                <div class="h-2.5 rounded bg-red-100"></div>
+                <div class="h-2.5 rounded bg-slate-100"></div>
+              </div>
+              <div class="grid grid-cols-4 gap-1">
+                <div class="h-2.5 rounded bg-emerald-100"></div>
+                <div class="h-2.5 rounded bg-emerald-100"></div>
+                <div class="h-2.5 rounded bg-amber-100"></div>
+                <div class="h-2.5 rounded bg-red-100"></div>
+              </div>
+              <div class="grid grid-cols-4 gap-1">
+                <div class="h-2.5 rounded bg-red-100"></div>
+                <div class="h-2.5 rounded bg-slate-100"></div>
+                <div class="h-2.5 rounded bg-red-100"></div>
+                <div class="h-2.5 rounded bg-emerald-100"></div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-red-200 p-3 md:p-4">
+            <div class="text-[10px] font-semibold text-red-500 uppercase tracking-wider mb-2">7. Gap Analysis</div>
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-red-50 text-red-500 text-[7px] font-bold flex items-center justify-center shrink-0">1</span>
+                <div class="h-2.5 bg-red-50 rounded flex-1"></div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-red-50 text-red-500 text-[7px] font-bold flex items-center justify-center shrink-0">2</span>
+                <div class="h-2.5 bg-red-50 rounded flex-1"></div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-amber-50 text-amber-500 text-[7px] font-bold flex items-center justify-center shrink-0">3</span>
+                <div class="h-2.5 bg-amber-50 rounded flex-1"></div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-brand-200 p-3 md:p-4">
+            <div class="text-[10px] font-semibold text-brand-600 uppercase tracking-wider mb-2">8. Motion to Compel</div>
+            <div class="space-y-1.5">
+              <div class="h-2.5 bg-slate-100 rounded w-full"></div>
+              <div class="h-2.5 bg-slate-100 rounded w-4/5"></div>
+              <div class="mt-1 px-2 py-1 bg-emerald-50 border border-emerald-100 rounded">
+                <div class="h-2 bg-emerald-200 rounded w-3/4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2 arrows (desktop) -->
+        <div class="hidden md:flex items-center justify-center gap-1 mt-2 px-8">
+          <div class="flex-1 h-px bg-emerald-200"></div>
+          <svg class="w-3.5 h-3.5 text-amber-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <div class="flex-1 h-px bg-amber-200"></div>
+          <svg class="w-3.5 h-3.5 text-red-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <div class="flex-1 h-px bg-red-200"></div>
+          <svg class="w-3.5 h-3.5 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <div class="flex-1 h-px bg-brand-200"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="h-px bg-slate-100"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- FEATURE 1: Strategy-First Discovery -->
+  <!-- ============================================================ -->
+  <section id="strategy" class="py-20 md:py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-3">Strategy First</p>
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5">
+            Discovery starts from what you need to prove
+          </h2>
+          <p class="text-lg text-slate-500 leading-relaxed mb-6">
+            Most discovery tools begin with templates. Legawrite begins with the complaint, maps every cause of action to the elements that must be proven, works backward from what it takes to win, and only then generates discovery. Every question exists for a strategic reason.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <span class="text-sm font-medium text-slate-700">Element mapping</span>
+                <p class="text-sm text-slate-500 mt-0.5">Each claim is decomposed into the specific facts required to prove it</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <span class="text-sm font-medium text-slate-700">Strategic backcasting</span>
+                <p class="text-sm text-slate-500 mt-0.5">Starts from what winning requires and identifies what evidence is still missing</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <span class="text-sm font-medium text-slate-700">Purpose-driven output</span>
+                <p class="text-sm text-slate-500 mt-0.5">No question is generated without a traceable connection to a case objective</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- UI: Strategic Planning Layout -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-4">Strategic Discovery Plan</div>
+          <!-- Cause of Action -->
+          <div class="bg-white border border-slate-200 rounded-lg p-4 mb-3">
+            <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-2">Cause of Action</div>
+            <div class="text-sm font-medium text-slate-700 mb-2">Negligence &mdash; Professional Malpractice</div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 bg-brand-50 text-brand-600 text-[10px] font-medium rounded-full">Duty</span>
+              <span class="px-2 py-0.5 bg-brand-50 text-brand-600 text-[10px] font-medium rounded-full">Breach</span>
+              <span class="px-2 py-0.5 bg-brand-50 text-brand-600 text-[10px] font-medium rounded-full">Causation</span>
+              <span class="px-2 py-0.5 bg-brand-50 text-brand-600 text-[10px] font-medium rounded-full">Damages</span>
+            </div>
+          </div>
+          <!-- Strategic Objective -->
+          <div class="bg-white border border-brand-200 rounded-lg p-4 mb-3">
+            <div class="text-[10px] font-semibold text-brand-500 uppercase tracking-wider mb-2">Strategic Objective</div>
+            <div class="text-xs text-slate-600 mb-1.5">Establish defendant knew of risk prior to incident</div>
+            <div class="flex items-center gap-2">
+              <div class="text-[10px] text-slate-400">Evidence needed:</div>
+              <span class="px-1.5 py-0.5 bg-amber-50 text-amber-600 text-[10px] font-medium rounded">3 gaps</span>
+            </div>
+          </div>
+          <!-- Generated Questions -->
+          <div class="bg-white border border-emerald-200 rounded-lg p-4">
+            <div class="text-[10px] font-semibold text-emerald-600 uppercase tracking-wider mb-2">Generated Discovery</div>
+            <div class="space-y-2">
+              <div class="flex items-start gap-2">
+                <span class="text-[10px] text-brand-500 font-semibold mt-0.5 shrink-0">INT-1</span>
+                <div class="text-xs text-slate-600">Identify all communications regarding known risks prior to March 2024</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-[10px] text-brand-500 font-semibold mt-0.5 shrink-0">RFD-1</span>
+                <div class="text-xs text-slate-600">All internal reports, memos, or audits referencing risk assessments</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-[10px] text-brand-500 font-semibold mt-0.5 shrink-0">RFA-1</span>
+                <div class="text-xs text-slate-600">Admit that defendant received the March 12 inspection report</div>
+              </div>
+            </div>
+          </div>
+          <!-- Connection indicator -->
+          <div class="mt-3 flex items-center gap-2 px-1">
+            <div class="w-2 h-2 rounded-full bg-brand-500"></div>
+            <div class="flex-1 h-px bg-brand-200"></div>
+            <div class="text-[10px] text-brand-500 font-medium">Every question traces to an element</div>
+            <div class="flex-1 h-px bg-brand-200"></div>
+            <div class="w-2 h-2 rounded-full bg-brand-500"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="h-px bg-slate-100"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- FEATURE 2: State-of-the-Art Interrogatory Creation -->
+  <!-- ============================================================ -->
+  <section id="interrogatories" class="py-20 md:py-28 px-6 bg-slate-50/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <!-- UI: Question Builder with "Why This Matters" panel -->
+        <div class="order-2 lg:order-1 bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-4">Question Builder</div>
+          <div class="space-y-3">
+            <!-- Selected question -->
+            <div class="bg-brand-50 border border-brand-200 rounded-lg p-4">
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <div class="text-xs text-brand-600 font-semibold">Interrogatory 4 &middot; Negligence &mdash; Duty of Care</div>
+                <span class="shrink-0 px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[10px] font-medium rounded">High Impact</span>
+              </div>
+              <div class="text-xs text-slate-600 leading-relaxed">
+                State with specificity each occasion on which any employee, agent, or representative of defendant communicated concerns about the inspection findings referenced in Exhibit B, including the date, participants, and substance of each communication.
+              </div>
+            </div>
+            <!-- Why This Matters panel -->
+            <div class="border border-brand-200 rounded-lg p-4 bg-white">
+              <div class="text-[10px] font-semibold text-brand-600 uppercase tracking-wider mb-2">Why This Matters</div>
+              <div class="text-xs text-slate-500 leading-relaxed mb-2">
+                Targets the element of knowledge. A vague question about "communications" invites an overbreadth objection. This version specifies the subject, the document, and the required detail, narrowing the scope so that an objection is defensible only on privilege grounds.
+              </div>
+              <div class="flex items-center gap-3 text-[10px]">
+                <span class="text-slate-400">Targets:</span>
+                <span class="px-1.5 py-0.5 bg-brand-50 text-brand-600 font-medium rounded">Knowledge</span>
+                <span class="px-1.5 py-0.5 bg-brand-50 text-brand-600 font-medium rounded">Breach</span>
+              </div>
+            </div>
+            <!-- Other questions (collapsed) -->
+            <div class="bg-white border border-slate-200 rounded-lg px-4 py-3 flex items-center justify-between">
+              <div class="text-xs text-slate-500">Interrogatory 5 &middot; Breach &mdash; Standard of Care</div>
+              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[10px] font-medium rounded">High</span>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-lg px-4 py-3 flex items-center justify-between">
+              <div class="text-xs text-slate-500">Interrogatory 6 &middot; Damages &mdash; Causation</div>
+              <span class="px-2 py-0.5 bg-amber-50 text-amber-600 text-[10px] font-medium rounded">Medium</span>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-lg px-4 py-3 flex items-center justify-between">
+              <div class="text-xs text-slate-500">RFA 3 &middot; Liability &mdash; Prior Notice</div>
+              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[10px] font-medium rounded">High</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-3">Interrogatory Creation</p>
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5">
+            Vague questions lose cases.<br>Precise questions win them.
+          </h2>
+          <p class="text-lg text-slate-500 leading-relaxed mb-6">
+            Every interrogatory is drafted to eliminate wiggle room. The system anticipates how opposing counsel will object, and structures each question to be narrow enough to survive a motion for protective order and specific enough to compel a meaningful answer.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <span class="text-sm font-medium text-slate-700">Objection-resistant by design</span>
+                <p class="text-sm text-slate-500 mt-0.5">Each question is pre-tested against common objection patterns before you see it</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <span class="text-sm font-medium text-slate-700">Strategic rationale for every question</span>
+                <p class="text-sm text-slate-500 mt-0.5">See exactly which element of proof each question targets and why it matters</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <span class="text-sm font-medium text-slate-700">Scoped to force real answers</span>
+                <p class="text-sm text-slate-500 mt-0.5">Narrow scope means fewer objections sustained and more substantive responses</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="h-px bg-slate-100"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- FEATURE 3: Evasion, Objection & Contradiction Detection -->
+  <!-- ============================================================ -->
+  <section id="detection" class="py-20 md:py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-3">Response Analysis</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5">
+          Detects gamesmanship before it costs you leverage
+        </h2>
+        <p class="text-lg text-slate-500 leading-relaxed">
+          The system assumes opposing counsel will evade, hedge, and object in bad faith. It reads every response looking for boilerplate objections, evasive language, contradictions with prior statements, and incomplete answers. Each finding includes the specific reason it's improper.
+        </p>
+      </div>
+
+      <!-- Detection Table UI -->
+      <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+          <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Response Analysis &mdash; Johnson v. MedTech Corp.</div>
+          <div class="flex items-center gap-3 text-[10px]">
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-red-400"></span> 4 Critical</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span> 3 High</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-slate-300"></span> 2 Low</span>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-slate-100 bg-slate-50/50">
+                <th class="py-3 px-4 text-left text-[10px] font-semibold text-slate-400 uppercase tracking-wider w-20">Request</th>
+                <th class="py-3 px-4 text-left text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Response Summary</th>
+                <th class="py-3 px-4 text-left text-[10px] font-semibold text-slate-400 uppercase tracking-wider w-28">Finding</th>
+                <th class="py-3 px-4 text-left text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Reason</th>
+                <th class="py-3 px-4 text-left text-[10px] font-semibold text-slate-400 uppercase tracking-wider w-20">Severity</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                <td class="py-3 px-4 text-xs font-medium text-slate-700">INT-4</td>
+                <td class="py-3 px-4 text-xs text-slate-500">"Defendant has no knowledge of any such meeting"</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-red-50 text-red-600 text-[10px] font-medium rounded">Contradicted</span></td>
+                <td class="py-3 px-4 text-xs text-slate-500">Email chain (Exhibit C) shows defendant attended meeting on Mar 12</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-red-50 text-red-600 text-[10px] font-medium rounded">Critical</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                <td class="py-3 px-4 text-xs font-medium text-slate-700">INT-9</td>
+                <td class="py-3 px-4 text-xs text-slate-500">"Responding party does not recall the specifics"</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-red-50 text-red-600 text-[10px] font-medium rounded">Evasive</span></td>
+                <td class="py-3 px-4 text-xs text-slate-500">Deposition testimony pp. 42-44 provides specific detail on same topic</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-red-50 text-red-600 text-[10px] font-medium rounded">Critical</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                <td class="py-3 px-4 text-xs font-medium text-slate-700">RFA-2</td>
+                <td class="py-3 px-4 text-xs text-slate-500">"Objection: overbroad and unduly burdensome"</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-amber-50 text-amber-600 text-[10px] font-medium rounded">Improper</span></td>
+                <td class="py-3 px-4 text-xs text-slate-500">Request is narrowly scoped to a single document and date range</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-amber-50 text-amber-600 text-[10px] font-medium rounded">High</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                <td class="py-3 px-4 text-xs font-medium text-slate-700">RFD-7</td>
+                <td class="py-3 px-4 text-xs text-slate-500">"All responsive documents have been produced"</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-red-50 text-red-600 text-[10px] font-medium rounded">Contradicted</span></td>
+                <td class="py-3 px-4 text-xs text-slate-500">Three document categories referenced in complaint not represented in production</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-red-50 text-red-600 text-[10px] font-medium rounded">Critical</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50/50 transition-colors duration-150">
+                <td class="py-3 px-4 text-xs font-medium text-slate-700">INT-12</td>
+                <td class="py-3 px-4 text-xs text-slate-500">"Objection: calls for a legal conclusion"</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-amber-50 text-amber-600 text-[10px] font-medium rounded">Improper</span></td>
+                <td class="py-3 px-4 text-xs text-slate-500">Question requests factual basis, not legal opinion; same objection used on 5 other requests</td>
+                <td class="py-3 px-4"><span class="px-2 py-1 bg-amber-50 text-amber-600 text-[10px] font-medium rounded">High</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Pattern detection callout -->
+        <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center gap-3">
+          <svg class="w-4 h-4 text-amber-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          <div class="text-xs text-slate-500"><span class="font-medium text-slate-700">Pattern detected:</span> Identical boilerplate objection used across 5 of 18 requests, suggesting systematic evasion rather than good-faith response</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="h-px bg-slate-100"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- FEATURE 4: Matrix-Based Analysis -->
+  <!-- ============================================================ -->
+  <section id="analysis" class="py-20 md:py-28 px-6 bg-slate-50/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-3">Matrix Analysis</p>
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5">
+            Nothing missed.<br>Nothing guessed.
+          </h2>
+          <p class="text-lg text-slate-500 leading-relaxed mb-6">
+            Every document is evaluated once against everything that matters. Claims are compared to evidence, sworn statements are checked against prior testimony, and timelines are tested for consistency. The result is a structured matrix where contradictions and gaps are findings, not opinions.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <span class="text-sm font-medium text-slate-700">Complete coverage</span>
+                <p class="text-sm text-slate-500 mt-0.5">Every response is checked against every relevant source, not sampled</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <span class="text-sm font-medium text-slate-700">Source-linked findings</span>
+                <p class="text-sm text-slate-500 mt-0.5">Every flag cites the exact document, page, and statement it contradicts</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <div>
+                <span class="text-sm font-medium text-slate-700">Explainable and auditable</span>
+                <p class="text-sm text-slate-500 mt-0.5">The reasoning behind each finding is visible, not hidden behind a confidence score</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UI: Cross-Reference Matrix -->
+        <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-5 overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Cross-Reference Matrix</div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-medium rounded cursor-pointer hover:bg-slate-200 transition-colors duration-150">All</span>
+              <span class="px-2 py-0.5 bg-red-50 text-red-600 text-[10px] font-medium rounded cursor-pointer hover:bg-red-100 transition-colors duration-150">Conflicts</span>
+              <span class="px-2 py-0.5 bg-slate-50 text-slate-400 text-[10px] font-medium rounded cursor-pointer hover:bg-slate-100 transition-colors duration-150">Verified</span>
+            </div>
+          </div>
+          <!-- Matrix grid -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-[10px]">
+              <thead>
+                <tr>
+                  <th class="pb-2 pr-2 text-left font-medium text-slate-400 uppercase"></th>
+                  <th class="pb-2 px-1 text-center font-medium text-slate-400 uppercase w-16">Complaint</th>
+                  <th class="pb-2 px-1 text-center font-medium text-slate-400 uppercase w-16">Deposition</th>
+                  <th class="pb-2 px-1 text-center font-medium text-slate-400 uppercase w-16">Exhibits</th>
+                  <th class="pb-2 px-1 text-center font-medium text-slate-400 uppercase w-16">Prior Resp.</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-50">
+                <tr>
+                  <td class="py-2 pr-2 font-medium text-slate-600">INT-4</td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-emerald-50 text-emerald-500 font-bold">&#10003;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-red-50 text-red-500 font-bold">&#10005;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-red-50 text-red-500 font-bold">&#10005;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-slate-50 text-slate-300">&mdash;</span></td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-2 font-medium text-slate-600">INT-9</td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-emerald-50 text-emerald-500 font-bold">&#10003;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-red-50 text-red-500 font-bold">&#10005;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-emerald-50 text-emerald-500 font-bold">&#10003;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-red-50 text-red-500 font-bold">&#10005;</span></td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-2 font-medium text-slate-600">RFD-7</td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-red-50 text-red-500 font-bold">&#10005;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-slate-50 text-slate-300">&mdash;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-red-50 text-red-500 font-bold">&#10005;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-emerald-50 text-emerald-500 font-bold">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-2 font-medium text-slate-600">RFA-2</td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-emerald-50 text-emerald-500 font-bold">&#10003;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-emerald-50 text-emerald-500 font-bold">&#10003;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-emerald-50 text-emerald-500 font-bold">&#10003;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-slate-50 text-slate-300">&mdash;</span></td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-2 font-medium text-slate-600">INT-12</td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-amber-50 text-amber-500 font-bold">!</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-red-50 text-red-500 font-bold">&#10005;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-slate-50 text-slate-300">&mdash;</span></td>
+                  <td class="py-2 px-1 text-center"><span class="inline-block w-6 h-6 leading-6 rounded bg-amber-50 text-amber-500 font-bold">!</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 flex items-center gap-4 text-[10px] text-slate-400 pt-3 border-t border-slate-100">
+            <span class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-emerald-50 text-emerald-500 inline-flex items-center justify-center font-bold text-[8px]">&#10003;</span> Consistent</span>
+            <span class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-red-50 text-red-500 inline-flex items-center justify-center font-bold text-[8px]">&#10005;</span> Conflict</span>
+            <span class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-amber-50 text-amber-500 inline-flex items-center justify-center font-bold text-[8px]">!</span> Incomplete</span>
+            <span class="flex items-center gap-1"><span class="w-4 h-4 rounded bg-slate-50 text-slate-300 inline-flex items-center justify-center text-[8px]">&mdash;</span> N/A</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="h-px bg-slate-100"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- FEATURE 5: Gap Analysis → Enforcement -->
+  <!-- ============================================================ -->
+  <section id="enforcement" class="py-20 md:py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-3">From Analysis to Action</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5">
+          From deficiency to motion, without losing momentum
+        </h2>
+        <p class="text-lg text-slate-500 leading-relaxed">
+          Most tools stop at analysis. Legawrite takes every scored deficiency and feeds it directly into a meet-and-confer letter or a motion to compel, with legal authority already attached. The output is court-ready, not a to-do list.
+        </p>
+      </div>
+
+      <!-- Two-panel: Issues Table → Motion Preview -->
+      <div class="grid lg:grid-cols-2 gap-6">
+        <!-- Left: Prioritized Issues Table -->
+        <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+          <div class="px-5 py-3 border-b border-slate-100 bg-slate-50/50">
+            <div class="text-xs font-medium text-slate-400 uppercase tracking-wider">Prioritized Deficiencies</div>
+          </div>
+          <div class="divide-y divide-slate-100">
+            <div class="px-5 py-3 flex items-center gap-3">
+              <span class="w-5 h-5 rounded bg-red-50 text-red-500 text-[10px] font-bold flex items-center justify-center shrink-0">1</span>
+              <div class="flex-1 min-w-0">
+                <div class="text-xs font-medium text-slate-700">INT-4: Denied knowledge contradicted by Exhibit C</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Negligence &mdash; Knowledge &middot; Strategic importance: Critical</div>
+              </div>
+              <span class="px-2 py-0.5 bg-brand-50 text-brand-600 text-[10px] font-medium rounded shrink-0">Compel</span>
+            </div>
+            <div class="px-5 py-3 flex items-center gap-3">
+              <span class="w-5 h-5 rounded bg-red-50 text-red-500 text-[10px] font-bold flex items-center justify-center shrink-0">2</span>
+              <div class="flex-1 min-w-0">
+                <div class="text-xs font-medium text-slate-700">RFD-7: Production gaps in 3 document categories</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Document Production &middot; Strategic importance: Critical</div>
+              </div>
+              <span class="px-2 py-0.5 bg-brand-50 text-brand-600 text-[10px] font-medium rounded shrink-0">Compel</span>
+            </div>
+            <div class="px-5 py-3 flex items-center gap-3">
+              <span class="w-5 h-5 rounded bg-red-50 text-red-500 text-[10px] font-bold flex items-center justify-center shrink-0">3</span>
+              <div class="flex-1 min-w-0">
+                <div class="text-xs font-medium text-slate-700">INT-9: Selective memory contradicts deposition</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Breach &mdash; Standard of Care &middot; Strategic importance: Critical</div>
+              </div>
+              <span class="px-2 py-0.5 bg-brand-50 text-brand-600 text-[10px] font-medium rounded shrink-0">Compel</span>
+            </div>
+            <div class="px-5 py-3 flex items-center gap-3">
+              <span class="w-5 h-5 rounded bg-amber-50 text-amber-500 text-[10px] font-bold flex items-center justify-center shrink-0">4</span>
+              <div class="flex-1 min-w-0">
+                <div class="text-xs font-medium text-slate-700">RFA-2: Boilerplate overbreadth objection</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Liability &mdash; Prior Notice &middot; Strategic importance: High</div>
+              </div>
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-medium rounded shrink-0">Meet & Confer</span>
+            </div>
+            <div class="px-5 py-3 flex items-center gap-3">
+              <span class="w-5 h-5 rounded bg-amber-50 text-amber-500 text-[10px] font-bold flex items-center justify-center shrink-0">5</span>
+              <div class="flex-1 min-w-0">
+                <div class="text-xs font-medium text-slate-700">INT-12: Repeated improper "legal conclusion" objection</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Damages &mdash; Causation &middot; Strategic importance: High</div>
+              </div>
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-medium rounded shrink-0">Meet & Confer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Motion Preview -->
+        <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden flex flex-col">
+          <div class="px-5 py-3 border-b border-slate-100 bg-emerald-50/50 flex items-center justify-between">
+            <div class="text-xs font-medium text-emerald-700 uppercase tracking-wider">Motion to Compel &mdash; Draft</div>
+            <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-medium rounded">Court-Ready</span>
+          </div>
+          <div class="p-5 flex-1">
+            <div class="text-xs text-slate-400 uppercase tracking-wider font-medium mb-3">Issue I</div>
+            <div class="text-sm font-medium text-slate-700 mb-2">Defendant's Denial of Knowledge Contradicts Documentary Evidence</div>
+            <div class="text-xs text-slate-500 leading-relaxed mb-3">
+              Defendant responded to Interrogatory No. 4 by stating it had "no knowledge of any such meeting." However, Exhibit C, produced by Defendant in its initial disclosures, is an email chain confirming Defendant's attendance at the March 12 meeting...
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 mb-4">
+              <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Legal Authority</div>
+              <div class="text-xs text-slate-500">Fed. R. Civ. P. 37(a)(3)(B)(iii); <span class="italic">Penford Corp. v. Nat'l Union Fire Ins.</span>, 265 F.R.D. 430, 433 (N.D. Iowa 2010)</div>
+            </div>
+
+            <div class="text-xs text-slate-400 uppercase tracking-wider font-medium mb-3 pt-2 border-t border-slate-100">Issue II</div>
+            <div class="text-sm font-medium text-slate-700 mb-2">Incomplete Document Production</div>
+            <div class="text-xs text-slate-500 leading-relaxed">
+              Defendant stated that "all responsive documents have been produced" in response to Request for Documents No. 7. Yet three categories of documents referenced in the Complaint...
+            </div>
+          </div>
+          <div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
+            <div class="text-[10px] text-slate-400">3 issues &middot; 4 authorities attached</div>
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 bg-white border border-slate-200 text-slate-500 text-[10px] font-medium rounded cursor-pointer hover:bg-slate-50 transition-colors duration-150">Export PDF</span>
+              <span class="px-3 py-1 bg-brand-500 text-white text-[10px] font-medium rounded cursor-pointer hover:bg-brand-600 transition-colors duration-150">Export Word</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="h-px bg-slate-100"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- FEATURE 6: End-to-End Discovery Lifecycle -->
+  <!-- ============================================================ -->
+  <section class="py-20 md:py-28 px-6 bg-slate-50/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-3">One Connected System</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5">
+          Discovery is a loop, not a list of tools
+        </h2>
+        <p class="text-lg text-slate-500 leading-relaxed">
+          Drafting, analysis, and enforcement live in one system. Findings from response analysis feed directly into follow-up discovery. Gaps become motions. Every stage builds on the last.
+        </p>
+      </div>
+
+      <!-- Lifecycle visualization -->
+      <div class="max-w-3xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-200 rounded-xl overflow-hidden shadow-sm">
+          <!-- Stage: Draft -->
+          <div class="bg-white p-6 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            </div>
+            <div class="text-sm font-semibold text-slate-800 mb-1">Draft</div>
+            <p class="text-xs text-slate-500 leading-relaxed">Strategy-first interrogatories, RFAs, and document requests</p>
+            <svg class="w-5 h-5 text-slate-300 mt-4 hidden md:block rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </div>
+          <!-- Stage: Analyze -->
+          <div class="bg-white p-6 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div class="text-sm font-semibold text-slate-800 mb-1">Analyze</div>
+            <p class="text-xs text-slate-500 leading-relaxed">Detect evasions, contradictions, and improper objections</p>
+            <svg class="w-5 h-5 text-slate-300 mt-4 hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </div>
+          <!-- Stage: Enforce -->
+          <div class="bg-white p-6 flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="text-sm font-semibold text-slate-800 mb-1">Enforce</div>
+            <p class="text-xs text-slate-500 leading-relaxed">Meet-and-confer letters and motions to compel with authority</p>
+          </div>
+        </div>
+        <!-- Loop arrow -->
+        <div class="flex items-center justify-center mt-4 gap-2">
+          <svg class="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span class="text-xs text-slate-400">Findings loop back into follow-up discovery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="h-px bg-slate-100"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- WHO IT'S FOR -->
+  <!-- ============================================================ -->
+  <section id="who" class="py-20 md:py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-3">Built For</p>
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+          For the people who do the work
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="border border-slate-200 rounded-xl p-6 hover:border-brand-200 transition-colors duration-200">
+          <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Associates drafting discovery</h3>
+          <p class="text-sm text-slate-500">Turn a complaint into a complete discovery set with strategic rationale for every question.</p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-6 hover:border-brand-200 transition-colors duration-200">
+          <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Litigators planning strategy</h3>
+          <p class="text-sm text-slate-500">See exactly where opposing counsel is evading, and build a record that supports your motion.</p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-6 hover:border-brand-200 transition-colors duration-200">
+          <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="text-base font-semibold mb-2">Solo practitioners who need leverage</h3>
+          <p class="text-sm text-slate-500">The analytical depth of a large team, available to a practice of one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6"><div class="h-px bg-slate-100"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- TRUST & DEFENSIBILITY -->
+  <!-- ============================================================ -->
+  <section class="py-20 md:py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-3">Built for the Record</p>
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5">
+            Every output is defensible
+          </h2>
+          <p class="text-base text-slate-500 leading-relaxed">
+            Legawrite traces every recommendation to its source. Questions cite the elements they target. Deficiency flags reference the specific response and the authority that requires disclosure. Nothing is a black box.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+            <svg class="w-6 h-6 text-slate-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <div class="text-sm font-medium text-slate-700">Auditable</div>
+            <p class="text-xs text-slate-400 mt-1">Full citation trail</p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+            <svg class="w-6 h-6 text-slate-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <div class="text-sm font-medium text-slate-700">Secure</div>
+            <p class="text-xs text-slate-400 mt-1">Case data encrypted</p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+            <svg class="w-6 h-6 text-slate-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+            <div class="text-sm font-medium text-slate-700">Court-Ready</div>
+            <p class="text-xs text-slate-400 mt-1">Formatted for filing</p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-center">
+            <svg class="w-6 h-6 text-slate-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            <div class="text-sm font-medium text-slate-700">Explainable</div>
+            <p class="text-xs text-slate-400 mt-1">No black boxes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FINAL CTA -->
+  <!-- ============================================================ -->
+  <section id="demo" class="py-20 md:py-28 px-6 bg-slate-50/50 border-t border-slate-100">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5">
+        See how discovery changes when strategy comes first
+      </h2>
+      <p class="text-base text-slate-500 leading-relaxed mb-8">
+        Request a walkthrough of the Discovery module. We'll show you how Legawrite turns a complaint into strategic discovery, detects gamesmanship in opposing responses, and builds your motion to compel.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#" class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition-colors duration-200 cursor-pointer">
+          Request a Strategic Demo
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-slate-100">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="text-sm text-slate-400">legawrite.ai &middot; Explainable legal AI for litigation</span>
+      <div class="flex items-center gap-6 text-sm text-slate-400">
+        <a href="#" class="hover:text-slate-600 transition-colors duration-200 cursor-pointer">Privacy</a>
+        <a href="#" class="hover:text-slate-600 transition-colors duration-200 cursor-pointer">Terms</a>
+        <a href="#" class="hover:text-slate-600 transition-colors duration-200 cursor-pointer">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

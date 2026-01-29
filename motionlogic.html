@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MotionLogic&reg; &mdash; Procedural Intelligence Framework</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy: '#111726',
+        primary: { DEFAULT: '#1976D2', dark: '#1565C0' },
+        brand: {
+          dark: '#111726',
+          blue: '#1672d7',
+          cyan: '#5fe1f1',
+        },
+        slate: {
+          925: '#0c1220',
+        },
+      },
+      fontFamily: {
+        brand: ['Mont', 'system-ui', 'sans-serif'],
+        serif: ['Georgia', 'Times New Roman', 'serif'],
+        mono: ['SFMono-Regular', 'Consolas', 'Liberation Mono', 'monospace'],
+      },
+    },
+  },
+}
+</script>
+<style>
+  @font-face {
+    font-family: 'Mont';
+    src: url('Mont-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @media (max-width: 640px) {
+    .flow-wrap { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body class="bg-stone-50 text-stone-900 antialiased leading-relaxed text-lg">
+
+<!-- Back to Platform -->
+<div class="sticky top-0 z-[60] bg-navy text-white text-sm py-2 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto">
+    <a href="upcoming-features.html" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors duration-200 cursor-pointer">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+      Back to Platform Overview
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky top-8 z-50 bg-white/95 backdrop-blur border-b border-gray-200" aria-label="Main navigation">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <div class="flex items-center gap-4">
+      <img src="legawrite-logo-horizontal.png" alt="LegaWrite" class="h-7 w-auto">
+      <div class="hidden sm:block h-5 w-px bg-gray-300"></div>
+      <span class="hidden sm:block text-sm font-medium text-gray-600">Procedural Intelligence Framework</span>
+    </div>
+    <div class="flex items-center gap-6">
+      <a href="#how" class="hidden md:inline text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 cursor-pointer">How It Works</a>
+      <a href="#features" class="hidden md:inline text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 cursor-pointer">Capabilities</a>
+      <a href="#interfaces" class="hidden md:inline text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 cursor-pointer">Interfaces</a>
+      <a href="#contact" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors duration-200 cursor-pointer">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pt-24 pb-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-sm uppercase tracking-[0.15em] text-stone-400 mb-5">Procedural Intelligence Framework</p>
+    <h1 class="font-serif text-5xl sm:text-6xl font-bold text-slate-800 tracking-tight leading-[1.12] max-w-3xl mb-6">Procedure Is Infrastructure</h1>
+    <p class="text-stone-500 text-xl max-w-2xl leading-relaxed mb-10">
+      A procedural execution layer that identifies the correct motion, enforces court authority and scope, and prevents irreversible filing errors&mdash;before they happen.
+    </p>
+    <div class="flex flex-wrap gap-3 mb-12">
+      <a href="#how" class="inline-block text-base font-semibold tracking-wide bg-brand-dark text-white px-6 py-3 rounded-sm hover:bg-slate-700 transition">See How It Works</a>
+      <a href="#flow" class="inline-block text-base font-semibold tracking-wide border border-stone-300 text-slate-800 px-6 py-3 rounded-sm hover:bg-stone-100 transition">View Procedural Flow</a>
+    </div>
+
+    <!-- Flow Diagram -->
+    <div id="flow" class="flex items-center font-mono text-sm text-stone-500 mt-4 whitespace-nowrap">
+      <div class="border border-stone-300 bg-white px-4 py-3">Problem</div>
+      <div class="px-1.5 text-stone-300 text-lg">&rarr;</div>
+      <div class="bg-brand-dark text-white border border-brand-dark px-4 py-3">Classification</div>
+      <div class="px-1.5 text-stone-300 text-lg">&rarr;</div>
+      <div class="bg-brand-dark text-white border border-brand-dark px-4 py-3">Motion Selection</div>
+      <div class="px-1.5 text-stone-300 text-lg">&rarr;</div>
+      <div class="bg-brand-dark text-white border border-brand-dark px-4 py-3">Standards &amp; Scope</div>
+      <div class="px-1.5 text-stone-300 text-lg">&rarr;</div>
+      <div class="bg-brand-dark text-white border border-brand-dark px-4 py-3">Scaffold</div>
+      <div class="px-1.5 text-stone-300 text-lg">&rarr;</div>
+      <div class="bg-brand-dark text-white border border-brand-dark px-4 py-3">Local Rules</div>
+      <div class="px-1.5 text-stone-300 text-lg">&rarr;</div>
+      <div class="bg-brand-dark text-white border border-brand-dark px-4 py-3">Draft</div>
+      <div class="px-1.5 text-stone-300 text-lg">&rarr;</div>
+      <div class="bg-amber-100 text-amber-800 border-2 border-amber-400 px-4 py-3 font-semibold">Review</div>
+      <div class="px-1.5 text-stone-300 text-lg">&rarr;</div>
+      <div class="border border-stone-300 bg-white px-4 py-3">Filing</div>
+    </div>
+    <div class="flex items-center gap-4 mt-3 font-mono text-xs text-stone-400">
+      <span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 bg-brand-dark rounded-sm"></span> Automated</span>
+      <span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 bg-amber-100 border border-amber-400 rounded-sm"></span> Human Review</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTAKE -->
+<section class="border-t border-stone-200 py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-base text-stone-500 mb-6">Describe the procedural problem in your own words. No motion selection required.</p>
+    <div class="flex items-center gap-0 font-mono text-sm text-stone-500">
+      <div class="flex-1 border border-stone-300 bg-white px-5 py-4 text-stone-400 italic">"The court's minute order contradicts the oral ruling on support..."</div>
+      <div class="px-2 text-stone-300 text-lg shrink-0">&rarr;</div>
+      <div class="bg-brand-dark text-white border border-brand-dark px-5 py-4 whitespace-nowrap">Classification</div>
+      <div class="px-2 text-stone-300 text-lg shrink-0">&rarr;</div>
+      <div class="bg-brand-dark text-white border border-brand-dark px-5 py-4 whitespace-nowrap">Motion Logic</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT DOES -->
+<section class="border-t border-stone-200 py-20 px-6" id="how">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-xs uppercase tracking-[0.16em] text-stone-400 mb-3">What It Does</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-800 tracking-tight mb-4">It Begins with Constraints, Not Arguments</h2>
+    <p class="text-stone-500 text-lg max-w-2xl leading-relaxed mb-10">
+      MotionLogic does not start with a motion name. It does not assume a legal theory. It starts from the litigation problem and works backward through procedural logic to determine what the court is permitted to do.
+    </p>
+    <ul class="divide-y divide-stone-200">
+      <li class="py-3 text-lg text-stone-500"><strong class="text-stone-900 font-semibold">Classifies the procedural issue</strong> &mdash; clerical, jurisdictional, merits-based, or interlocutory</li>
+      <li class="py-3 text-lg text-stone-500"><strong class="text-stone-900 font-semibold">Determines court authority</strong> &mdash; what the court is legally allowed to consider and decide</li>
+      <li class="py-3 text-lg text-stone-500"><strong class="text-stone-900 font-semibold">Identifies motions that must not be filed</strong> &mdash; those that waive rights, expand exposure, or invite reconsideration</li>
+      <li class="py-3 text-lg text-stone-500"><strong class="text-stone-900 font-semibold">Enforces standards and scope</strong> &mdash; before a single argument is written</li>
+      <li class="py-3 text-lg text-stone-500"><strong class="text-stone-900 font-semibold">Builds a constrained motion architecture</strong> &mdash; required sections only, correct sequencing, forbidden arguments excluded</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="border-t border-stone-200 py-20 px-6" id="features">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-xs uppercase tracking-[0.16em] text-stone-400 mb-3">Core Capabilities</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-800 tracking-tight mb-4">Five Layers of Procedural Control</h2>
+    <p class="text-stone-500 text-lg max-w-2xl leading-relaxed mb-12">
+      Each layer enforces a constraint. Together they prevent silent procedural failure from reaching the court.
+    </p>
+
+    <div class="space-y-10">
+
+      <!-- 1. Classification -->
+      <div class="bg-white border border-stone-200 p-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-mono text-xs text-stone-400 bg-stone-100 px-2.5 py-1 rounded-sm">01</span>
+          <span class="text-xs uppercase tracking-wider text-slate-800 border border-slate-800 px-2.5 py-1 rounded-sm">Priority</span>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">Procedural Issue Classification</h3>
+        <p class="text-base text-stone-500 leading-relaxed mb-6">If you misclassify the issue, everything that follows fails. The classifier converts the litigation problem into a procedural category that governs all downstream logic.</p>
+
+        <table class="w-full text-base border-collapse">
+          <thead>
+            <tr class="bg-stone-50">
+              <th class="text-left text-xs uppercase tracking-wider text-stone-400 font-semibold px-4 py-3 border-b-2 border-stone-200">Axis</th>
+              <th class="text-left text-xs uppercase tracking-wider text-stone-400 font-semibold px-4 py-3 border-b-2 border-stone-200">Left</th>
+              <th class="text-left text-xs uppercase tracking-wider text-stone-400 font-semibold px-4 py-3 border-b-2 border-stone-200">Right</th>
+            </tr>
+          </thead>
+          <tbody class="text-stone-500">
+            <tr><td class="px-4 py-3 border-b border-stone-100">Error type</td><td class="px-4 py-3 border-b border-stone-100">Clerical</td><td class="px-4 py-3 border-b border-stone-100">Judicial</td></tr>
+            <tr><td class="px-4 py-3 border-b border-stone-100">Domain</td><td class="px-4 py-3 border-b border-stone-100">Jurisdictional</td><td class="px-4 py-3 border-b border-stone-100">Merits</td></tr>
+            <tr><td class="px-4 py-3 border-b border-stone-100">Posture</td><td class="px-4 py-3 border-b border-stone-100">Interlocutory</td><td class="px-4 py-3 border-b border-stone-100">Final</td></tr>
+            <tr><td class="px-4 py-3">Remedy</td><td class="px-4 py-3">Correctable</td><td class="px-4 py-3">Appealable / Void</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2. Motion Selection -->
+      <div class="bg-white border border-stone-200 p-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-mono text-xs text-stone-400 bg-stone-100 px-2.5 py-1 rounded-sm">02</span>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">Motion Selection Engine</h3>
+        <p class="text-base text-stone-500 leading-relaxed mb-6">Not every motion that can be written should be filed. The engine selects the correct procedural vehicle, ranks alternatives, and flags motions that are dangerous or waived.</p>
+
+        <ul class="space-y-0 divide-y divide-stone-100 text-base mb-6">
+          <li class="flex items-center gap-3 py-2.5">
+            <span class="text-xs font-semibold uppercase tracking-wide bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-sm whitespace-nowrap">Safe</span>
+            <span class="text-stone-500">CCP &sect;473(b) &mdash; Correction of clerical error in minute order</span>
+          </li>
+          <li class="flex items-center gap-3 py-2.5">
+            <span class="text-xs font-semibold uppercase tracking-wide bg-amber-50 text-amber-700 px-2 py-0.5 rounded-sm whitespace-nowrap">Caution</span>
+            <span class="text-stone-500">CCP &sect;1008 &mdash; Reconsideration (new facts required; scope risk)</span>
+          </li>
+          <li class="flex items-center gap-3 py-2.5">
+            <span class="text-xs font-semibold uppercase tracking-wide bg-red-50 text-red-700 px-2 py-0.5 rounded-sm whitespace-nowrap">Reject</span>
+            <span class="text-stone-500">CCP &sect;473(d) &mdash; Void order (overbroad; invites modification)</span>
+          </li>
+        </ul>
+
+        <div class="border-l-[3px] border-stone-200 pl-5 font-serif text-base italic text-stone-400">
+          Decision-as-a-Service: the system decides which procedural vehicles are safe to use.
+        </div>
+      </div>
+
+      <!-- 3. Standards & Scope -->
+      <div class="bg-white border border-stone-200 p-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-mono text-xs text-stone-400 bg-stone-100 px-2.5 py-1 rounded-sm">03</span>
+          <span class="text-xs uppercase tracking-wider text-slate-800 border border-slate-800 px-2.5 py-1 rounded-sm">Priority</span>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">Standards &amp; Scope Generator</h3>
+        <p class="text-base text-stone-500 leading-relaxed mb-6">Courts decide cases by rules, not arguments. This generator produces the governing standard for any selected motion&mdash;authority, scope, decision rule, and relief type.</p>
+
+        <div class="border-2 border-slate-800 bg-stone-50 p-6">
+          <p class="font-mono text-xs uppercase tracking-[0.12em] text-slate-800 mb-5">Standards &amp; Scope &mdash; CCP &sect;473(b)</p>
+          <dl class="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-x-5 gap-y-3 text-base">
+            <dt class="font-semibold text-stone-900">Authority</dt>
+            <dd class="text-stone-500">Inherent power to correct clerical errors in orders</dd>
+            <dt class="font-semibold text-stone-900">Scope</dt>
+            <dd class="text-stone-500">Limited to ministerial mistakes; no substantive reconsideration</dd>
+            <dt class="font-semibold text-stone-900">Decision Rule</dt>
+            <dd class="text-stone-500">Mandatory correction if error is clerical and record supports it</dd>
+            <dt class="font-semibold text-stone-900">Relief</dt>
+            <dd class="text-stone-500">Mandatory (not discretionary)</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- 4. Scaffolding -->
+      <div class="bg-white border border-stone-200 p-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-mono text-xs text-stone-400 bg-stone-100 px-2.5 py-1 rounded-sm">04</span>
+          <span class="text-xs uppercase tracking-wider text-slate-800 border border-slate-800 px-2.5 py-1 rounded-sm">Priority</span>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">Constrained Motion Scaffolding</h3>
+        <p class="text-base text-stone-500 leading-relaxed mb-6">Structure before persuasion. The scaffolding builder produces a motion architecture with required sections only, in correct order, with forbidden arguments explicitly excluded.</p>
+
+        <ol class="font-mono text-base divide-y divide-stone-100">
+          <li class="flex items-center gap-3 px-4 py-3">
+            <span class="text-stone-300 text-[0.65rem] w-8 shrink-0">I.</span>
+            <span class="text-stone-600">Notice of Motion</span>
+            <span class="ml-auto text-xs uppercase tracking-wider text-stone-400 bg-stone-100 px-2 py-0.5">Required</span>
+          </li>
+          <li class="flex items-center gap-3 px-4 py-3">
+            <span class="text-stone-300 text-[0.65rem] w-8 shrink-0">II.</span>
+            <span class="text-stone-600">Statement of Facts (record-only)</span>
+            <span class="ml-auto text-xs uppercase tracking-wider text-stone-400 bg-stone-100 px-2 py-0.5">Required</span>
+          </li>
+          <li class="flex items-center gap-3 px-4 py-3">
+            <span class="text-stone-300 text-[0.65rem] w-8 shrink-0">III.</span>
+            <span class="text-stone-600">Identification of Clerical Error</span>
+            <span class="ml-auto text-xs uppercase tracking-wider text-stone-400 bg-stone-100 px-2 py-0.5">Required</span>
+          </li>
+          <li class="flex items-center gap-3 px-4 py-3">
+            <span class="text-stone-300 text-[0.65rem] w-8 shrink-0">IV.</span>
+            <span class="text-stone-600">Governing Standard: &sect;473(b)</span>
+            <span class="ml-auto text-xs uppercase tracking-wider text-stone-400 bg-stone-100 px-2 py-0.5">Locked</span>
+          </li>
+          <li class="flex items-center gap-3 px-4 py-3">
+            <span class="text-stone-300 text-[0.65rem] w-8 shrink-0">V.</span>
+            <span class="text-stone-600">Proposed Corrected Order</span>
+            <span class="ml-auto text-xs uppercase tracking-wider text-stone-400 bg-stone-100 px-2 py-0.5">Required</span>
+          </li>
+          <li class="flex items-center gap-3 px-4 py-3 opacity-50">
+            <span class="text-red-400 text-[0.65rem] w-8 shrink-0">VI.</span>
+            <span class="text-red-500 line-through">Argument re: merits of underlying ruling</span>
+            <span class="ml-auto text-xs uppercase tracking-wider text-red-500 bg-red-50 px-2 py-0.5">Excluded</span>
+          </li>
+          <li class="flex items-center gap-3 px-4 py-3 opacity-50">
+            <span class="text-red-400 text-[0.65rem] w-8 shrink-0">VII.</span>
+            <span class="text-red-500 line-through">Request for modification of support</span>
+            <span class="ml-auto text-xs uppercase tracking-wider text-red-500 bg-red-50 px-2 py-0.5">Excluded</span>
+          </li>
+        </ol>
+      </div>
+
+      <!-- 5. Risk & Audit -->
+      <div class="bg-white border border-stone-200 p-10">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-mono text-xs text-stone-400 bg-stone-100 px-2.5 py-1 rounded-sm">05</span>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-3">Risk, Exposure, and Audit Layer</h3>
+        <p class="text-base text-stone-500 leading-relaxed mb-6">Procedural errors create silent losses. Before output is finalized, the system flags waiver risk, appeal impact, finality exposure, and financial trajectory.</p>
+
+        <table class="w-full text-base border-collapse">
+          <thead>
+            <tr class="bg-stone-50">
+              <th class="text-left text-xs uppercase tracking-wider text-stone-400 font-semibold px-4 py-3 border-b-2 border-stone-200">Risk Category</th>
+              <th class="text-left text-xs uppercase tracking-wider text-stone-400 font-semibold px-4 py-3 border-b-2 border-stone-200">Status</th>
+              <th class="text-left text-xs uppercase tracking-wider text-stone-400 font-semibold px-4 py-3 border-b-2 border-stone-200">Impact</th>
+            </tr>
+          </thead>
+          <tbody class="text-stone-500">
+            <tr><td class="px-4 py-3 border-b border-stone-100">Appellate waiver</td><td class="px-4 py-3 border-b border-stone-100 text-emerald-700 font-semibold">None</td><td class="px-4 py-3 border-b border-stone-100">Clerical correction preserves all appeal rights</td></tr>
+            <tr><td class="px-4 py-3 border-b border-stone-100">Scope expansion</td><td class="px-4 py-3 border-b border-stone-100 text-emerald-700 font-semibold">Controlled</td><td class="px-4 py-3 border-b border-stone-100">Scaffold excludes merits arguments</td></tr>
+            <tr><td class="px-4 py-3 border-b border-stone-100">Modification trigger</td><td class="px-4 py-3 border-b border-stone-100 text-amber-700 font-semibold">Watch</td><td class="px-4 py-3 border-b border-stone-100">Opposing counsel may attempt to recharacterize</td></tr>
+            <tr><td class="px-4 py-3">Exposure trajectory</td><td class="px-3 py-2 text-red-700 font-semibold">Active</td><td class="px-4 py-3">Ongoing support accrual until order corrected</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="border-t border-stone-200 py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-xs uppercase tracking-[0.16em] text-stone-400 mb-3">Who This Is For</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-800 tracking-tight mb-8">Enterprise Procedural Infrastructure</h2>
+    <div class="grid gap-4">
+      <div class="bg-white border border-stone-200 px-8 py-6">
+        <p class="text-base font-semibold text-stone-900 mb-1">Captive Insurance Litigation Teams</p>
+        <p class="text-base text-stone-500">Standardize procedural quality across panel counsel. Reduce exposure from misclassified motions.</p>
+      </div>
+      <div class="bg-white border border-stone-200 px-8 py-6">
+        <p class="text-base font-semibold text-stone-900 mb-1">Litigation Boutiques</p>
+        <p class="text-base text-stone-500">Procedural precision on high-risk motions without training overhead.</p>
+      </div>
+      <div class="bg-white border border-stone-200 px-8 py-6">
+        <p class="text-base font-semibold text-stone-900 mb-1">Platforms Requiring Procedural Correctness</p>
+        <p class="text-base text-stone-500">Embed procedural intelligence as a service via MCP-compliant endpoint.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERFACES -->
+<section class="border-t border-stone-200 py-20 px-6" id="interfaces">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-xs uppercase tracking-[0.16em] text-stone-400 mb-3">Two Interfaces</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-800 tracking-tight mb-8">Human or System. Same Procedural Logic.</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <div class="bg-white border border-stone-200 p-8">
+        <p class="text-xs uppercase tracking-[0.12em] text-brand-blue font-semibold mb-5">Human UX</p>
+        <ul class="space-y-3 text-base text-stone-500">
+          <li>Plain-English problem description</li>
+          <li>Guided procedural explanation</li>
+          <li>Returns what motion is allowed and why</li>
+        </ul>
+      </div>
+
+      <div class="bg-white border border-stone-200 p-8">
+        <p class="text-xs uppercase tracking-[0.12em] text-brand-blue font-semibold mb-5">System / Enterprise API</p>
+        <ul class="space-y-3 text-base text-stone-500">
+          <li>MCP-compliant endpoint</li>
+          <li><strong class="text-stone-700">Sends:</strong> litigative direction, jurisdiction, posture, constraints</li>
+          <li><strong class="text-stone-700">Returns:</strong> motion type, standards &amp; scope, constrained scaffold</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTRAST -->
+<section class="border-t border-stone-200 py-20 px-6" id="difference">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-xs uppercase tracking-[0.16em] text-stone-400 mb-3">The Difference</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-800 tracking-tight mb-6">Authority, Not Information</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 border border-stone-200">
+      <div class="bg-stone-100 p-8 sm:border-r border-b sm:border-b-0 border-stone-200">
+        <p class="text-xs uppercase tracking-[0.12em] text-stone-400 mb-4">Legal Research Tools</p>
+        <p class="text-base text-stone-400 leading-relaxed">Answer "what law exists."<br>Return statutes, cases, and commentary. Leave procedural application to the user.</p>
+      </div>
+      <div class="bg-white p-8">
+        <p class="text-xs uppercase tracking-[0.12em] text-stone-400 mb-4">MotionLogic&reg;</p>
+        <p class="text-base text-stone-900 font-semibold leading-relaxed">Answers "what the court is allowed to do."<br>Returns the correct motion, the governing standard, the scope boundary, and a constrained filing structure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bg-slate-800 text-white py-20 px-6" id="contact">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="font-serif text-3xl font-bold text-white mb-4">Procedure Determines Outcome</h2>
+    <p class="text-slate-400 text-base mb-8">See how MotionLogic enforces procedural correctness before filing.</p>
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href="#" class="inline-block text-base font-semibold tracking-wide bg-white text-slate-800 px-6 py-3 rounded-sm hover:bg-stone-100 transition">Request a Procedural Walkthrough</a>
+      <a href="#" class="inline-block text-base font-semibold tracking-wide border border-slate-600 text-white px-6 py-3 rounded-sm hover:bg-slate-700 transition">See a MotionLogic Execution</a>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-stone-200 py-8 px-6">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+    <img src="legawrite-logo.png" alt="LegaWrite" class="h-5 opacity-40">
+    <p class="text-xs text-stone-400">&copy; 2025 LegaWrite. MotionLogic&reg; Procedural Intelligence Framework. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
