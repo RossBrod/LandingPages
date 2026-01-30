@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
@@ -8,49 +8,42 @@
   <meta name="description"
     content="An intelligent platform that validates materiality, admissibility, and legal sufficiency before your MSJ ever reaches a judge.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared-styles.css">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             navy: '#111726',
-            brand: { blue: '#1672D7', cyan: '#5FE1F1' },
-            primary: { DEFAULT: '#1976D2', dark: '#1565C0' },
+            surface: { base: '#f8fafc', elevated: '#ffffff' },
+            primary: { DEFAULT: '#1976D2', dark: '#1565C0', muted: '#1976D233' },
             danger: '#C62828',
           },
           fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+            serif: ['Instrument Serif', 'Georgia', 'serif'],
+            sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            'sm': '0 1px 2px 0 rgb(0 0 0 / 0.03)',
+            'md': '0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03)',
+            'lg': '0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.03)',
           },
         },
       },
     }
   </script>
-  <style>
-    @media (prefers-reduced-motion: reduce) {
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
 </head>
 
-<body class="bg-gray-50 text-navy font-sans antialiased">
+<body class="bg-surface-base text-navy font-sans antialiased">
 
   <!-- Back to Platform -->
-  <div class="bg-navy text-white text-sm py-2 px-4">
+  <div class="sticky top-0 z-[60] bg-navy text-white text-sm py-2 px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto">
       <a href="index.html"
-        class="inline-flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
+        class="back-link inline-flex items-center gap-1.5 text-slate-400 hover:text-white cursor-pointer">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
         </svg>
@@ -60,53 +53,51 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200" aria-label="Main navigation">
+  <nav id="main-nav" class="sticky top-8 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200/60 transition-all duration-200" aria-label="Main navigation">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
       <div class="flex items-center gap-3">
         <img src="legawrite-logo-horizontal.png" alt="LegaWrite" class="h-7">
-        <span class="hidden sm:block w-px h-6 bg-gray-300" aria-hidden="true"></span>
-        <span class="hidden sm:block text-sm font-medium text-gray-600">Motion for Summary Judgment Platform</span>
+        <span class="hidden sm:block w-px h-6 bg-gray-300/60" aria-hidden="true"></span>
+        <span class="hidden sm:block text-sm font-medium text-gray-500 tracking-tight">Motion for Summary Judgment Platform</span>
       </div>
       <div class="flex items-center gap-6">
         <a href="#how-it-works"
-          class="hidden md:inline text-sm text-gray-600 hover:text-primary transition-colors cursor-pointer">How It
-          Works</a>
+          class="hidden md:inline text-sm font-medium text-gray-600 hover:text-primary link-primary cursor-pointer">How It Works</a>
         <a href="#how-it-works"
-          class="hidden md:inline text-sm text-gray-600 hover:text-primary transition-colors cursor-pointer">Four
-          Pillars</a>
+          class="hidden md:inline text-sm font-medium text-gray-600 hover:text-primary link-primary cursor-pointer">Four Pillars</a>
         <a href="#who"
-          class="hidden md:inline text-sm text-gray-600 hover:text-primary transition-colors cursor-pointer">Who It's
-          For</a>
+          class="hidden md:inline text-sm font-medium text-gray-600 hover:text-primary link-primary cursor-pointer">Who It's For</a>
         <a href="#final-cta"
-          class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors cursor-pointer">See
-          the MSJ Validation Flow</a>
+          class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-md cta-btn cursor-pointer">See the MSJ Validation Flow</a>
       </div>
     </div>
   </nav>
 
   <!-- 1. Hero Section -->
-  <section class="py-20 sm:py-28 px-4" aria-label="Hero">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+  <section class="relative py-20 sm:py-28 px-4 hero-gradient" aria-label="Hero">
+    <div class="absolute inset-0 hero-grid" aria-hidden="true"></div>
+    <div class="relative max-w-4xl mx-auto text-center">
+      <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-4 badge">Motion for Summary Judgment</p>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium leading-tight tracking-tight text-navy">
         Summary Judgment Fails When <span class="text-gray-400">Facts Don't Matter or Evidence Doesn't Stick</span>
       </h1>
-      <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">An intelligent platform that validates materiality,
+      <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto font-normal leading-relaxed">An intelligent platform that validates materiality,
         admissibility, and legal sufficiency before your MSJ ever reaches a judge.</p>
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
         <a href="#final-cta"
-          class="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors cursor-pointer">See
+          class="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-md cta-btn cursor-pointer">See
           the MSJ Validation Flow</a>
         <a href="#alignment"
-          class="inline-flex items-center px-6 py-3 text-sm font-semibold text-primary border border-primary hover:bg-primary hover:text-white rounded-lg transition-colors cursor-pointer">View
+          class="inline-flex items-center px-6 py-3 text-sm font-semibold text-primary border border-primary/30 hover:border-primary hover:bg-primary/5 rounded-md transition-colors duration-150 cursor-pointer">View
           an Example Analysis</a>
       </div>
 
       <!-- Flow Diagram -->
-      <div class="mt-12 bg-white border border-gray-200 rounded-xl p-6">
+      <div class="mt-12 bg-surface-elevated border border-gray-200/80 rounded-xl p-6 shadow-sm">
         <div class="grid grid-cols-1 sm:grid-cols-7 items-center gap-2 sm:gap-0">
           <!-- Pillar 1 -->
-          <div class="flex flex-col items-center gap-2 sm:col-span-1">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+          <div class="flex flex-col items-center gap-2 sm:col-span-1 group">
+            <svg class="w-9 h-9 icon-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
               aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -115,14 +106,14 @@
           </div>
           <!-- Arrow -->
           <div class="hidden sm:flex justify-center sm:col-span-1">
-            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+            <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
               aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </div>
           <!-- Pillar 2 -->
-          <div class="flex flex-col items-center gap-2 sm:col-span-1">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+          <div class="flex flex-col items-center gap-2 sm:col-span-1 group">
+            <svg class="w-9 h-9 icon-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
               aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
@@ -131,14 +122,14 @@
           </div>
           <!-- Arrow -->
           <div class="hidden sm:flex justify-center sm:col-span-1">
-            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+            <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
               aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </div>
           <!-- Pillar 3 -->
-          <div class="flex flex-col items-center gap-2 sm:col-span-1">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+          <div class="flex flex-col items-center gap-2 sm:col-span-1 group">
+            <svg class="w-9 h-9 icon-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
               aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -147,17 +138,17 @@
           </div>
           <!-- Arrow -->
           <div class="hidden sm:flex justify-center sm:col-span-1">
-            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+            <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
               aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </div>
           <!-- Pillar 4 -->
-          <div class="flex flex-col items-center gap-2 sm:col-span-1">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+          <div class="flex flex-col items-center gap-2 sm:col-span-1 group">
+            <svg class="w-9 h-9 icon-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
               aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
-                d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
             </svg>
             <span class="text-sm font-semibold text-navy">Adversarial Risk</span>
           </div>
@@ -167,13 +158,13 @@
   </section>
 
   <!-- 2. Why Summary Judgment Motions Get Denied -->
-  <section id="why-denied" class="bg-white border-y border-gray-200 py-16 sm:py-20 px-4"
+  <section id="why-denied" class="bg-surface-elevated border-y border-gray-200/60 py-16 sm:py-20 px-4"
     aria-label="Why motions get denied">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4">Summary judgment demands undisputed AND material facts</h2>
+      <h2 class="text-2xl sm:text-3xl font-semibold text-navy text-center mb-4">Summary judgment demands undisputed AND material facts</h2>
 
 <div class="max-w-6xl mx-auto mb-12 text-center">
-  <p class="text-3xl sm:text-4xl font-bold text-center text-primary  mb-4">
+  <p class="text-xl sm:text-2xl font-semibold text-center text-primary mb-4">
     Our patented system validates both before you file.
   </p>
 
@@ -181,13 +172,13 @@
 
       <div class="grid sm:grid-cols-2 gap-6">
         <!-- Card 1: Materiality Doubt -->
-        <div class="border border-gray-200 rounded-xl p-6">
-          <svg class="w-7 h-7 text-danger mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+        <div class="section-card bg-surface-elevated border border-gray-200/80 rounded-xl p-6 shadow-sm">
+          <svg class="w-8 h-8 text-danger opacity-80 mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
             aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
           </svg>
-          <h3 class="font-bold text-navy text-2xl mb-2">Facts That Don't Control the Outcome</h3>
+          <h3 class="font-semibold text-navy text-xl mb-2">Facts That Don't Control the Outcome</h3>
           <p class="text-lg text-gray-600 mb-3">A fact can be true, documented, and undisputed - and still legally
             irrelevant. When materiality is unclear, judges default to denial.</p>
           <div class="border-t border-gray-100 pt-3">
@@ -197,7 +188,7 @@
           </div>
         </div>
         <!-- Card 2: Admissibility Doubt -->
-        <div class="border border-gray-200 rounded-xl p-6">
+        <div class="section-card bg-surface-elevated border border-gray-200/80 rounded-xl p-6 shadow-sm">
           <svg class="w-7 h-7 text-danger mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
             aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -214,7 +205,7 @@
           </div>
         </div>
         <!-- Card 3: Doctrinal Doubt -->
-        <div class="border border-gray-200 rounded-xl p-6">
+        <div class="section-card bg-surface-elevated border border-gray-200/80 rounded-xl p-6 shadow-sm">
           <svg class="w-7 h-7 text-danger mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
             aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -231,7 +222,7 @@
           </div>
         </div>
         <!-- Card 4: Disputability Doubt -->
-        <div class="border border-gray-200 rounded-xl p-6">
+        <div class="section-card bg-surface-elevated border border-gray-200/80 rounded-xl p-6 shadow-sm">
           <svg class="w-7 h-7 text-danger mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
             aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -257,12 +248,12 @@
   <section id="how-it-works" class="py-16 sm:py-20 px-4" aria-label="How it works">
     <div class="max-w-[1560px] mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-bold">The MSJ Validation Architecture</h2>
+        <h2 class="text-2xl sm:text-3xl font-semibold text-navy">The MSJ Validation Architecture</h2>
         <p class="mt-3 text-gray-600">Every fact and argument is validated before drafting.</p>
       </div>
       <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
         <!-- Pillar 1 -->
-        <div class="bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
+        <div class="pillar-card bg-surface-elevated border border-gray-200/80 rounded-xl p-8 flex flex-col shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span
               class="w-8 h-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
@@ -297,7 +288,7 @@
           </ul>
         </div>
         <!-- Pillar 2 -->
-        <div class="bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
+        <div class="pillar-card bg-surface-elevated border border-gray-200/80 rounded-xl p-8 flex flex-col shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span
               class="w-8 h-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
@@ -331,7 +322,7 @@
           </ul>
         </div>
         <!-- Pillar 3 -->
-        <div class="bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
+        <div class="pillar-card bg-surface-elevated border border-gray-200/80 rounded-xl p-8 flex flex-col shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span
               class="w-8 h-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
@@ -365,7 +356,7 @@
           </ul>
         </div>
         <!-- Pillar 4 -->
-        <div class="bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
+        <div class="pillar-card bg-surface-elevated border border-gray-200/80 rounded-xl p-8 flex flex-col shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span
               class="w-8 h-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
@@ -664,17 +655,18 @@
   </section>
 
   <!-- 9. Final CTA -->
-  <section id="final-cta" class="bg-navy py-16 sm:py-20 px-4" aria-label="Call to action">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Prevent Denial Before It Happens</h2>
-      <p class="text-gray-400 mb-8 max-w-2xl mx-auto">See how MSJ AI validates every fact, screens every piece of
+  <section id="final-cta" class="relative bg-navy py-16 sm:py-20 px-4" aria-label="Call to action">
+    <div class="absolute inset-0 cta-gradient" aria-hidden="true"></div>
+    <div class="relative max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-white mb-4">Prevent Denial Before It Happens</h2>
+      <p class="text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">See how MSJ AI validates every fact, screens every piece of
         evidence, and tests every argument before your motion reaches a judge.</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
         <a href="#"
-          class="inline-flex items-center px-6 py-3 text-sm font-semibold text-navy bg-white hover:bg-gray-100 rounded-lg transition-colors cursor-pointer">Request
+          class="inline-flex items-center px-6 py-3 text-sm font-semibold text-navy bg-white hover:bg-gray-100 rounded-md cta-btn cursor-pointer">Request
           an MSJ Walkthrough</a>
         <a href="#"
-          class="inline-flex items-center px-6 py-3 text-sm font-semibold text-white border border-white/30 hover:border-white/60 rounded-lg transition-colors cursor-pointer">See
+          class="inline-flex items-center px-6 py-3 text-sm font-semibold text-white border border-white/20 hover:border-white/40 rounded-md transition-colors duration-150 cursor-pointer">See
           How Denials Are Prevented</a>
       </div>
     </div>

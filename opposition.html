@@ -6,42 +6,40 @@
   <title>Opposition Tool - Strategic Motion Opposition Platform | LegaWrite</title>
   <meta name="description" content="A strategic motion opposition platform that analyzes the motion against you, forces a deliberate posture, and enforces quality before anything is written.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared-styles.css">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             navy: '#111726',
-            brand: {
-              blue: '#1672D7',
-              cyan: '#5FE1F1',
-            },
-            primary: {
-              DEFAULT: '#1976D2',
-              dark: '#1565C0',
-            },
+            surface: { base: '#f8fafc', elevated: '#ffffff' },
+            primary: { DEFAULT: '#1976D2', dark: '#1565C0', muted: '#1976D233' },
             danger: '#C62828',
           },
           fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+            serif: ['Instrument Serif', 'Georgia', 'serif'],
+            sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            'sm': '0 1px 2px 0 rgb(0 0 0 / 0.03)',
+            'md': '0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03)',
+            'lg': '0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.03)',
           },
         },
       },
     }
   </script>
-  <style>
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { transition: none !important; }
-    }
-  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
+<body class="bg-surface-base text-gray-900 font-sans antialiased">
 
   <!-- Back to Platform -->
   <div class="sticky top-0 z-[60] bg-navy text-white text-sm py-2 px-6">
     <div class="max-w-6xl mx-auto">
-      <a href="index.html" class="inline-flex items-center gap-1.5 text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
+      <a href="index.html" class="back-link inline-flex items-center gap-1.5 text-slate-400 hover:text-white cursor-pointer">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
         Back to Platform Overview
       </a>
@@ -49,41 +47,45 @@
   </div>
 
   <!-- NAVBAR -->
-  <nav class="sticky top-8 z-50 bg-white/95 backdrop-blur border-b border-gray-200" role="navigation" aria-label="Main navigation">
+  <nav class="sticky top-8 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200/60 transition-all duration-200" role="navigation" aria-label="Main navigation">
     <div class="max-w-6xl mx-auto px-6 sm:px-12 h-16 flex items-center justify-between">
       <div class="flex items-center gap-4">
         <img src="legawrite-logo-horizontal.png" alt="LegaWrite logo" class="h-7 w-auto">
-        <div class="hidden sm:block h-5 w-px bg-gray-300"></div>
-        <span class="hidden sm:block text-base font-semibold text-gray-900 tracking-tight">Strategic Motion Opposition Platform</span>
+        <div class="hidden sm:block h-5 w-px bg-gray-300/60"></div>
+        <span class="hidden sm:block text-sm font-medium text-gray-500 tracking-tight">Strategic Motion Opposition Platform</span>
       </div>
       <div class="flex items-center gap-8">
-        <a href="#how-it-works" class="hidden md:inline text-sm text-gray-600 hover:text-gray-900 transition-colors">How It Works</a>
-        <a href="#postures" class="hidden md:inline text-sm text-gray-600 hover:text-gray-900 transition-colors">Strategic Postures</a>
-        <a href="#quality" class="hidden md:inline text-sm text-gray-600 hover:text-gray-900 transition-colors">Quality Gates</a>
-        <a href="#final-cta" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-md transition-colors cursor-pointer">See How It Works</a>
+        <a href="#how-it-works" class="hidden md:inline text-sm font-medium text-gray-600 hover:text-primary link-primary">How It Works</a>
+        <a href="#postures" class="hidden md:inline text-sm font-medium text-gray-600 hover:text-primary link-primary">Strategic Postures</a>
+        <a href="#quality" class="hidden md:inline text-sm font-medium text-gray-600 hover:text-primary link-primary">Quality Gates</a>
+        <a href="#final-cta" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-md cta-btn cursor-pointer">See How It Works</a>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="max-w-4xl mx-auto px-6 sm:px-12 pt-20 pb-16 text-center">
-    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight mb-5">
-      Opposition Is a Strategic Decision,
-      <span class="text-gray-400">Not a Writing Task</span>
-    </h1>
-    <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
-      A strategic motion opposition platform that analyzes the motion against you, forces a deliberate posture, and enforces quality before anything is written.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-3 justify-center mb-14">
-      <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors cursor-pointer">
-        See How It Works
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="#postures" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-gray-600 border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">View Example Opposition Flow</a>
+  <section class="relative max-w-4xl mx-auto px-6 sm:px-12 pt-20 pb-16 text-center hero-gradient">
+    <div class="absolute inset-0 hero-grid" aria-hidden="true"></div>
+    <div class="relative">
+      <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-4 badge">Strategic Motion Opposition</p>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium leading-tight tracking-tight mb-5 text-navy">
+        Opposition Is a Strategic Decision,
+        <span class="text-gray-400">Not a Writing Task</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
+        A strategic motion opposition platform that analyzes the motion against you, forces a deliberate posture, and enforces quality before anything is written.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mb-14">
+        <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-primary hover:bg-primary-dark rounded-md cta-btn cursor-pointer">
+          See How It Works
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#postures" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-gray-600 border border-gray-200/80 hover:bg-gray-50 hover:border-gray-300 rounded-md transition-colors duration-150 cursor-pointer">View Example Opposition Flow</a>
+      </div>
     </div>
 
     <!-- Flow Diagram -->
-    <div class="flex flex-nowrap items-center justify-center gap-0 bg-white border border-gray-200 rounded-xl p-6 sm:p-8 overflow-x-hidden">
+    <div class="flex flex-nowrap items-center justify-center gap-0 bg-surface-elevated border border-gray-200/80 rounded-xl p-6 sm:p-8 shadow-sm overflow-x-hidden">
       <!-- Upload Motion -->
       <div class="flex flex-col items-center gap-2 px-3">
         <svg class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
@@ -369,16 +371,17 @@
   </section>
 
   <!-- FINAL CTA -->
-  <section id="final-cta" class="py-20 text-center">
-    <div class="max-w-xl mx-auto px-6 sm:px-12">
-      <h2 class="text-3xl font-bold leading-tight mb-4">See an Opposition Built the Right Way</h2>
-      <p class="text-base text-gray-600 leading-relaxed mb-8">Strategy before prose. Judgment before generation. Constraints before output.</p>
+  <section id="final-cta" class="relative py-20 text-center bg-navy">
+    <div class="absolute inset-0 cta-gradient" aria-hidden="true"></div>
+    <div class="relative max-w-xl mx-auto px-6 sm:px-12">
+      <h2 class="text-2xl sm:text-3xl font-semibold leading-tight mb-4 text-white">See an Opposition Built the Right Way</h2>
+      <p class="text-base text-gray-400 leading-relaxed mb-8">Strategy before prose. Judgment before generation. Constraints before output.</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="#" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors cursor-pointer">
+        <a href="#" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-navy bg-white hover:bg-gray-100 rounded-md cta-btn cursor-pointer">
           Request a Strategic Walkthrough
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-gray-600 border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer">See How It Works</a>
+        <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold text-white border border-white/20 hover:border-white/40 rounded-md transition-colors duration-150 cursor-pointer">See How It Works</a>
       </div>
     </div>
   </section>

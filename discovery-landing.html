@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,47 +7,49 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared-styles.css">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Instrument Serif', 'Georgia', 'serif'],
+            sans: ['Geist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
           },
           colors: {
+            navy: '#111726',
+            surface: { base: '#f8fafc', elevated: '#ffffff' },
+            primary: { DEFAULT: '#1976D2', dark: '#1565C0', muted: '#1976D233' },
             slate: { 925: '#0c1222' },
             brand: {
               50: '#f0f4ff',
               100: '#dbe4ff',
               200: '#bac8ff',
-              500: '#4263eb',
-              600: '#3b5bdb',
-              700: '#364fc7',
+              500: '#1976D2',
+              600: '#1565C0',
+              700: '#1254A1',
               800: '#1e3a6e',
               900: '#162b52',
             },
+          },
+          boxShadow: {
+            'sm': '0 1px 2px 0 rgb(0 0 0 / 0.03)',
+            'md': '0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03)',
+            'lg': '0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.03)',
           },
         },
       },
     }
   </script>
-  <style>
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
 </head>
 
-<body class="bg-white text-slate-900 font-sans antialiased">
+<body class="bg-surface-base text-slate-900 font-sans antialiased">
 
   <!-- Back to Platform -->
-  <div class="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-white text-sm py-2 px-6">
+  <div class="fixed top-0 left-0 right-0 z-[60] bg-navy text-white text-sm py-2 px-6">
     <div class="max-w-6xl mx-auto">
-      <a href="index.html" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors duration-200 cursor-pointer">
+      <a href="index.html" class="back-link inline-flex items-center gap-1.5 text-slate-400 hover:text-white cursor-pointer">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
         Back to Platform Overview
       </a>
@@ -55,19 +57,19 @@
   </div>
 
   <!-- Navigation -->
-  <nav class="fixed top-8 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+  <nav class="fixed top-8 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100/60 transition-all duration-200">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2 cursor-pointer">
-        <span class="text-lg font-semibold tracking-tight text-slate-900">legawrite<span class="text-brand-500">.ai</span></span>
+        <img src="legawrite-logo-horizontal.png" alt="LegaWrite" class="h-7">
       </a>
-      <div class="hidden md:flex items-center gap-8 text-sm text-slate-500">
-        <a href="#strategy" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Strategy</a>
-        <a href="#interrogatories" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Interrogatories</a>
-        <a href="#detection" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Detection</a>
-        <a href="#analysis" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Analysis</a>
-        <a href="#enforcement" class="hover:text-slate-900 transition-colors duration-200 cursor-pointer">Enforcement</a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-500">
+        <a href="#strategy" class="hover:text-primary link-primary cursor-pointer">Strategy</a>
+        <a href="#interrogatories" class="hover:text-primary link-primary cursor-pointer">Interrogatories</a>
+        <a href="#detection" class="hover:text-primary link-primary cursor-pointer">Detection</a>
+        <a href="#analysis" class="hover:text-primary link-primary cursor-pointer">Analysis</a>
+        <a href="#enforcement" class="hover:text-primary link-primary cursor-pointer">Enforcement</a>
       </div>
-      <a href="#demo" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition-colors duration-200 cursor-pointer">
+      <a href="#demo" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-primary rounded-md cta-btn hover:bg-primary-dark cursor-pointer">
         Request Demo
       </a>
     </div>
@@ -76,21 +78,22 @@
   <!-- ============================================================ -->
   <!-- HERO -->
   <!-- ============================================================ -->
-  <section class="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <p class="text-sm font-medium text-brand-500 tracking-wide uppercase mb-4">Discovery Strategy Engine</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] text-slate-925 mb-6">
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 px-6 hero-gradient">
+    <div class="absolute inset-0 hero-grid" aria-hidden="true"></div>
+    <div class="relative max-w-4xl mx-auto text-center">
+      <p class="text-sm font-semibold text-primary tracking-wider uppercase mb-4 badge">Discovery Strategy Engine</p>
+      <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.1] text-navy mb-6">
         Designed to force answers,<br class="hidden md:block"> not just ask questions
       </h1>
       <p class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
         Legawrite starts from what must be proven to win. It generates objection-resistant interrogatories, detects evasive responses and contradictions, and turns every gap into a court-ready motion to compel.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#demo" class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition-colors duration-200 cursor-pointer">
+        <a href="#demo" class="inline-flex items-center px-6 py-3 text-base font-semibold text-white bg-primary rounded-md cta-btn hover:bg-primary-dark cursor-pointer">
           See Discovery Strategy in Action
           <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
-        <a href="#example" class="inline-flex items-center px-6 py-3 text-base font-medium text-slate-600 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:border-slate-300 transition-colors duration-200 cursor-pointer">
+        <a href="#example" class="inline-flex items-center px-6 py-3 text-base font-semibold text-slate-600 bg-slate-50 border border-slate-200/80 rounded-md hover:bg-slate-100 hover:border-slate-300 transition-colors duration-150 cursor-pointer">
           View Example Output
         </a>
       </div>
@@ -873,16 +876,17 @@
   <!-- ============================================================ -->
   <!-- FINAL CTA -->
   <!-- ============================================================ -->
-  <section id="demo" class="py-20 md:py-28 px-6 bg-slate-50/50 border-t border-slate-100">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-tight mb-5">
+  <section id="demo" class="relative py-20 md:py-28 px-6 bg-navy border-t border-slate-100">
+    <div class="absolute inset-0 cta-gradient" aria-hidden="true"></div>
+    <div class="relative max-w-2xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight leading-tight mb-5 text-white">
         See how discovery changes when strategy comes first
       </h2>
-      <p class="text-base text-slate-500 leading-relaxed mb-8">
+      <p class="text-base text-gray-400 leading-relaxed mb-8">
         Request a walkthrough of the Discovery module. We'll show you how Legawrite turns a complaint into strategic discovery, detects gamesmanship in opposing responses, and builds your motion to compel.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#" class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition-colors duration-200 cursor-pointer">
+        <a href="#" class="inline-flex items-center px-6 py-3 text-base font-semibold text-navy bg-white rounded-md cta-btn hover:bg-gray-100 cursor-pointer">
           Request a Strategic Demo
           <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>

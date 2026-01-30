@@ -1,0 +1,264 @@
+/* LegaWrite Shared Design System
+   ================================
+   This file contains the unified design tokens and styles
+   for all LegaWrite landing pages.
+*/
+
+/* Design Tokens */
+:root {
+  /* Colors */
+  --navy: #111726;
+  --surface-base: #f8fafc;
+  --surface-elevated: #ffffff;
+  --primary: #1976D2;
+  --primary-dark: #1565C0;
+  --primary-muted: rgba(25, 118, 210, 0.2);
+  --accent: #B45309;
+  --accent-light: #D97706;
+  --danger: #C62828;
+
+  /* Typography */
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.03);
+
+  /* Borders */
+  --border-muted: rgba(0, 0, 0, 0.08);
+  --border-default: rgba(0, 0, 0, 0.12);
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Noise overlay - extremely subtle */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Hero background gradient */
+.hero-gradient {
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(25, 118, 210, 0.08) 0%, transparent 60%);
+}
+
+/* Hero grid - fades out */
+.hero-grid {
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+
+/* Module card with animated top-line */
+.module-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-fast) var(--easing),
+              box-shadow var(--duration-fast) var(--easing),
+              border-color var(--duration-fast) var(--easing);
+}
+
+.module-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  transition: width var(--duration-normal) var(--easing);
+}
+
+.module-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(25, 118, 210, 0.3);
+}
+
+.module-card:hover::before {
+  width: 100%;
+}
+
+/* Feature cards */
+.feature-card {
+  transition: border-color var(--duration-fast) var(--easing),
+              background-color var(--duration-fast) var(--easing);
+}
+
+.feature-card:hover {
+  border-color: rgba(25, 118, 210, 0.2);
+  background-color: rgba(25, 118, 210, 0.02);
+}
+
+/* Icon styling */
+.icon-primary {
+  color: var(--primary);
+  opacity: 0.7;
+  transition: opacity var(--duration-fast) var(--easing);
+}
+
+.module-card:hover .icon-primary,
+.feature-card:hover .icon-primary,
+.group:hover .icon-primary {
+  opacity: 1;
+}
+
+/* Nav scroll state */
+.nav-scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.nav-top {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+/* Link hover */
+.link-primary {
+  transition: color var(--duration-fast) var(--easing);
+}
+
+.link-primary:hover {
+  color: var(--primary-dark);
+}
+
+.link-primary svg {
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+.link-primary:hover svg {
+  transform: translateX(3px);
+}
+
+/* CTA button */
+.cta-btn {
+  transition: background-color var(--duration-fast) var(--easing),
+              transform var(--duration-fast) var(--easing);
+}
+
+.cta-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Badge/pill */
+.badge {
+  letter-spacing: 0.05em;
+}
+
+/* Pillar card (for MSJ, etc.) */
+.pillar-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-fast) var(--easing),
+              box-shadow var(--duration-fast) var(--easing),
+              border-color var(--duration-fast) var(--easing);
+}
+
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  transition: width var(--duration-normal) var(--easing);
+}
+
+.pillar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(25, 118, 210, 0.3);
+}
+
+.pillar-card:hover::before {
+  width: 100%;
+}
+
+/* Section cards */
+.section-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-fast) var(--easing),
+              box-shadow var(--duration-fast) var(--easing),
+              border-color var(--duration-fast) var(--easing);
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(25, 118, 210, 0.2);
+}
+
+/* Back to platform link */
+.back-link {
+  transition: color var(--duration-fast) var(--easing);
+}
+
+.back-link:hover {
+  color: white;
+}
+
+.back-link svg {
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+.back-link:hover svg {
+  transform: translateX(-2px);
+}
+
+/* CTA section gradient */
+.cta-gradient {
+  background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(25, 118, 210, 0.15), transparent);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile sticky CTA */
+@media (max-width: 640px) {
+  .mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(255,255,255,1) 80%, rgba(255,255,255,0));
+    z-index: 40;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible for keyboard nav */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
